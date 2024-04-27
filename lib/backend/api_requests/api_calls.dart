@@ -104,7 +104,7 @@ class AccountCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Account',
       apiUrl:
-          'https://4618-219-75-69-73.ngrok-free.app/realms/SusCompanyRealm/protocol/openid-connect/token',
+          'https://142f-219-75-69-73.ngrok-free.app/realms/SusCompanyRealm/protocol/openid-connect/token',
       callType: ApiCallType.POST,
       headers: {},
       params: {
