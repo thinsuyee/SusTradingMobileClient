@@ -174,6 +174,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.int,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'ProductListCopy',
+          path: '/ProductListCopy',
+          builder: (context, params) => const ProductListCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

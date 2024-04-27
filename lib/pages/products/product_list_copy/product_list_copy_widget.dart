@@ -10,25 +10,25 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:text_search/text_search.dart';
-import 'product_list_model.dart';
-export 'product_list_model.dart';
+import 'product_list_copy_model.dart';
+export 'product_list_copy_model.dart';
 
-class ProductListWidget extends StatefulWidget {
-  const ProductListWidget({super.key});
+class ProductListCopyWidget extends StatefulWidget {
+  const ProductListCopyWidget({super.key});
 
   @override
-  State<ProductListWidget> createState() => _ProductListWidgetState();
+  State<ProductListCopyWidget> createState() => _ProductListCopyWidgetState();
 }
 
-class _ProductListWidgetState extends State<ProductListWidget> {
-  late ProductListModel _model;
+class _ProductListCopyWidgetState extends State<ProductListCopyWidget> {
+  late ProductListCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ProductListModel());
+    _model = createModel(context, () => ProductListCopyModel());
 
     _model.searchBarTextController ??= TextEditingController();
 
@@ -301,9 +301,7 @@ class _ProductListWidgetState extends State<ProductListWidget> {
                       child: PagedListView<ApiPagingParams, dynamic>(
                         pagingController:
                             _model.setAllProductListViewController(
-                          (nextPageMarker) => GetProductsAPICall.call(
-                            authToken: currentJwtToken,
-                          ),
+                          (nextPageMarker) => GetProductsAPICall.call(),
                         ),
                         padding: EdgeInsets.zero,
                         primary: false,
