@@ -37,7 +37,7 @@ class QueryProductByIDCall {
     return ApiManager.instance.makeApiCall(
       callName: 'queryProductByID',
       apiUrl:
-          'https://35ea-219-75-69-73.ngrok-free.app/api/product/query?id=$id',
+          'https://524f-219-75-69-73.ngrok-free.app/api/product/query?id=$id',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -98,13 +98,13 @@ class QueryProductByIDToTestInventoryCall {
 
 class AccountCall {
   static Future<ApiCallResponse> call({
-    String? username = 'mary',
-    String? password = 'suspassword',
+    String? username = '',
+    String? password = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Account',
       apiUrl:
-          'https://4618-219-75-69-73.ngrok-free.app/realms/SusCompanyRealm/protocol/openid-connect/token',
+          'https://142f-219-75-69-73.ngrok-free.app/realms/SusCompanyRealm/protocol/openid-connect/token',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -133,7 +133,7 @@ class CreateProductCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateProduct',
-      apiUrl: 'https://35ea-219-75-69-73.ngrok-free.app/api/product',
+      apiUrl: 'https://524f-219-75-69-73.ngrok-free.app/api/product',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -177,17 +177,17 @@ class SingleProductsCall {
 
 class GetProductsAPICall {
   static Future<ApiCallResponse> call({
-    String? authtoken = '',
+    String? authToken = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProductsAPI',
-      apiUrl: 'https://35ea-219-75-69-73.ngrok-free.app/api/product',
+      apiUrl: 'https://524f-219-75-69-73.ngrok-free.app/api/product',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
         'Accept-Language': 'en-US,en;q=0.9',
-        'Authorization': 'Bearer $authtoken',
+        'Authorization': 'Bearer $authToken',
       },
       params: {},
       returnBody: true,

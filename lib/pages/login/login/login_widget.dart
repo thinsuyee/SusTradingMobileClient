@@ -302,8 +302,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       return FFButtonWidget(
                                         onPressed: () async {
                                           _model.apiRespondResult =
-                                              await GetProductsAPICall.call(
-                                            authtoken: _model
+                                              await AccountCall.call(
+                                            username: _model
+                                                .emailAddressTextController
+                                                .text,
+                                            password: _model
                                                 .passwordTextController.text,
                                           );
                                           if ((_model.apiRespondResult
