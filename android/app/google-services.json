@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "835453542101",
+    "project_id": "sus-trading-co-9h84au",
+    "storage_bucket": "sus-trading-co-9h84au.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835453542101:android:5308981465c499d2294c5c",
+        "android_client_info": {
+          "package_name": "com.mycompany.sustradingco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdXwJV4Qdsjcni4ml9b6_7-WQa509RQ3w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
