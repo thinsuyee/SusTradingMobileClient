@@ -274,7 +274,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 7.0, 0.0, 16.0),
                                   child: FutureBuilder<ApiCallResponse>(
-                                    future: AccountCall.call(
+                                    future: SignInCall.call(
                                       password:
                                           _model.passwordTextController.text,
                                       username: _model
@@ -297,12 +297,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           ),
                                         );
                                       }
-                                      final buttonAccountResponse =
+                                      final buttonSignInResponse =
                                           snapshot.data!;
                                       return FFButtonWidget(
                                         onPressed: () async {
                                           _model.apiRespondResult =
-                                              await AccountCall.call(
+                                              await SignInCall.call(
                                             username: _model
                                                 .emailAddressTextController
                                                 .text,

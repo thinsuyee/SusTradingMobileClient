@@ -9,6 +9,7 @@ import 'dart:async';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'product_list_model.dart';
 export 'product_list_model.dart';
@@ -44,6 +45,8 @@ class _ProductListWidgetState extends State<ProductListWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -274,7 +277,7 @@ class _ProductListWidgetState extends State<ProductListWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Text(
-                          'All products',
+                          FFAppState().authtoken,
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
@@ -302,7 +305,7 @@ class _ProductListWidgetState extends State<ProductListWidget> {
                         pagingController:
                             _model.setAllProductListViewController(
                           (nextPageMarker) => GetProductsAPICall.call(
-                            authToken: currentJwtToken,
+                            authToken: FFAppState().authtoken,
                           ),
                         ),
                         padding: EdgeInsets.zero,

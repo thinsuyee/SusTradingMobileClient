@@ -96,22 +96,31 @@ class QueryProductByIDToTestInventoryCall {
           .toList();
 }
 
-class AccountCall {
+class SignInCall {
   static Future<ApiCallResponse> call({
     String? username = '',
     String? password = '',
+    String? clientId = 'frontend',
+    String? clientSecret = 'L5pkWsm44V3F699X8vTf42Irx7QvE45w',
+    String? grantType = 'password',
+    String? scope = 'openid',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: 'Account',
+      callName: 'Sign In',
       apiUrl:
           'https://142f-219-75-69-73.ngrok-free.app/realms/SusCompanyRealm/protocol/openid-connect/token',
       callType: ApiCallType.POST,
-      headers: {},
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+      },
       params: {
-        'client_id': "frontend",
-        'client_secret': "L5pkWsm44V3F699X8vTf42Irx7QvE45w",
-        'grant_type': "password",
-        'scope': "openid",
+        'client_id': clientId,
+        'client_secret': clientSecret,
+        'grant_type': grantType,
+        'scope': scope,
         'username': username,
         'password': password,
       },
@@ -123,6 +132,11 @@ class AccountCall {
       alwaysAllowBody: false,
     );
   }
+
+  static String? jwt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.access_token''',
+      ));
 }
 
 class CreateProductCall {
