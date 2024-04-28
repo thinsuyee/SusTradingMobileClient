@@ -275,10 +275,10 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       0.0, 7.0, 0.0, 16.0),
                                   child: FutureBuilder<ApiCallResponse>(
                                     future: SignInCall.call(
-                                      password:
-                                          _model.passwordTextController.text,
                                       username: _model
                                           .emailAddressTextController.text,
+                                      password:
+                                          _model.passwordTextController.text,
                                     ),
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.

@@ -1,4 +1,4 @@
-import '/auth/firebase_auth/auth_util.dart';
+import '/auth/custom_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
@@ -293,10 +293,8 @@ class _ProductListWidgetState extends State<ProductListWidget> {
                     ),
                   ],
                 ),
-                if (valueOrDefault<bool>(
-                  currentJwtToken != '',
-                  false,
-                ))
+                if (currentAuthenticationToken != null &&
+                    currentAuthenticationToken != '')
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),

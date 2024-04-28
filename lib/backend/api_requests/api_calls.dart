@@ -65,16 +65,17 @@ class QueryProductByIDCall {
 
 class QueryProductByIDToTestInventoryCall {
   static Future<ApiCallResponse> call({
-    String? id = '6627cb7576c2ba5b31752377',
+    String? id =
+        '6627cb7576c2ba5b31752377,6627cb7576c2ba5b31752377,6627cb7576c2ba5b31752377,6627cb7576c2ba5b31752377,6627ea4892dcda3154c8acfe,6627ea4892dcda3154c8acfe,6627e68392dcda3154c8acfc,6627ea4892dcda3154c8acfe,6627cb7576c2ba5b31752377,6627cb7576c2ba5b31752377,6627ea4892dcda3154c8acfe',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'queryProductByIDToTestInventory',
       apiUrl:
-          'https://fcc6-103-6-150-177.ngrok-free.app/api/product/query?id=$id',
+          'https://8848-103-6-150-177.ngrok-free.app/api/product/query?id=$id',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJLZEtYak9zNVNXMl9xVXBtQXZ4bThoZ0U1end3OWxzaFM0V19MQWxHZ3VJIn0.eyJleHAiOjE3MTQyMTE4NzEsImlhdCI6MTcxNDIxMTU3MSwiYXV0aF90aW1lIjoxNzE0MjEwNzkyLCJqdGkiOiJjMzk3ZDRkZS02YzhjLTQ1MGYtOGRjYi1lMDVjNzRkMjc3OWUiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6ImZiZDgyZDAzLTE0MjktNDIwOC04NzQ2LTI4NDQxNTQ2ZWQ5MSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiJmNWU3ZDE1Ni05ZWY3LTRjZGQtOGJjOC0xOTI5YzY4MDFlNjAiLCJzZXNzaW9uX3N0YXRlIjoiYTc4YzllNWEtZjE0Ni00ZGEwLWI2NDEtNDMwMTNmODMwMTQzIiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6ImE3OGM5ZTVhLWYxNDYtNGRhMC1iNjQxLTQzMDEzZjgzMDE0MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.Rzj5t1VCGingwOD9480Rn-srNpWuz9wRwxzMeoxSv3zH64Y-RLOMH8Ghh2QGYVUaKzhoYROMesTBJPnts2MtAFWl12QayYHy4dZSCHXPm5ieMTExCjU0QCYzjakpNcjLtS8GT_l0JCcVZ9LjuaTENOwd5mVSHW9T--ByOmnBpPE8FdJpM5OzAtkOsu8FYD63QXGkqjciGwyFS86wItp6EHveLalYLHDj0RJ3LEIBKa9Pq17xRzhfVpPlYbrtnw2Cu30eC7JaNxi3mC9Jc6DogoAWFPdSmEwbJ0AVSY0cZSVFkzdxehJyPLgoQoggqXRh2P6423KEEAglydCa9ghJqQ',
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2NGpJTWZ5cVpWSUVUOEU5OTNRanVVOFpTUVJOVTA3aFVydVl2emNBWFJ3In0.eyJleHAiOjE3MTQyOTU1MDEsImlhdCI6MTcxNDI5NTIwMSwiYXV0aF90aW1lIjoxNzE0MjkzNzc2LCJqdGkiOiIyYjEwYWJmOS01Mzg2LTRjN2MtYmNlYS00MDE4NGZlMGE3NWUiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6ImFlOGIyZjNlLWM4ZWYtNGQ4MC1hOTBiLTE1NmFjMTJiNDBlMyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiJiZmExY2I0NC01NDhiLTRjNzAtODdhMC1mYzg2NTIwYzkzM2UiLCJzZXNzaW9uX3N0YXRlIjoiOWViNDk2MDItZjVhYi00ZjI4LTlmYzktOTM1NmRkZGM2OWU2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjllYjQ5NjAyLWY1YWItNGYyOC05ZmM5LTkzNTZkZGRjNjllNiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.bASdmrUOt7lkQInlGa3E7S7VLEoh-kcAuliNTBKBNo3YlAta003cxY8JT3HqPKL81FQrM-IvE9ldUetfe0kyAvAvZeqlQsIdVogxxnFYeEF0olZIdwGQa4uB6v7JNwMbzEPkNYrU-Xn3saU5rRn5C7bfkp8fur1IdAfeO2JRsK1oauaV9kC8bSegrEX9sDGiys_XQkJdEu31GvuPFu43bLvG14Y23KP90b5JCyFLxnBCfAlOVUN9UjMnCp1NGFfxcF52fnIvmjYpnYLR9MiOcUvRN_muQPVNlLk8ukmt_FBJ-eSSUDQ7PTcj7eRoRWzH9FAEHbBUgqS9esS8Q_7ymg',
       },
       params: {},
       returnBody: true,
@@ -94,6 +95,15 @@ class QueryProductByIDToTestInventoryCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? getAllProductNames(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SignInCall {
@@ -101,7 +111,6 @@ class SignInCall {
     String? username = '',
     String? password = '',
     String? clientId = 'frontend',
-    String? clientSecret = 'L5pkWsm44V3F699X8vTf42Irx7QvE45w',
     String? grantType = 'password',
     String? scope = 'openid',
   }) async {
@@ -112,13 +121,9 @@ class SignInCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Accept': 'application/json, text/plain, */*',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
       },
       params: {
         'client_id': clientId,
-        'client_secret': clientSecret,
         'grant_type': grantType,
         'scope': scope,
         'username': username,
@@ -217,14 +222,14 @@ class GetAllInventoryCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllInventory',
-      apiUrl: 'https://fcc6-103-6-150-177.ngrok-free.app/api/inventory',
+      apiUrl: 'https://8848-103-6-150-177.ngrok-free.app/api/inventory',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
         'Accept-Language': 'en-US,en;q=0.9',
         'Authorization':
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJLZEtYak9zNVNXMl9xVXBtQXZ4bThoZ0U1end3OWxzaFM0V19MQWxHZ3VJIn0.eyJleHAiOjE3MTQyMTEwOTIsImlhdCI6MTcxNDIxMDc5MiwiYXV0aF90aW1lIjoxNzE0MjEwNzkyLCJqdGkiOiJjOWEyNjA0Yy1lMTE3LTQyMDUtYjIyZi01ZmQ0M2FlZDk5OWEiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6ImZiZDgyZDAzLTE0MjktNDIwOC04NzQ2LTI4NDQxNTQ2ZWQ5MSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiJiNjNmYTk5ZC1lOGM5LTQxNDMtOTllNi0zYzY3NGQ5ODRjMTgiLCJzZXNzaW9uX3N0YXRlIjoiYTc4YzllNWEtZjE0Ni00ZGEwLWI2NDEtNDMwMTNmODMwMTQzIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6ImE3OGM5ZTVhLWYxNDYtNGRhMC1iNjQxLTQzMDEzZjgzMDE0MyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.r2p1jpR1TyF-2ohWLZ3Tl-QztIOYhP3CA5ZHg_kNQgCShJU7ZhQZ3ntoBYdVOdtXkufduvih5rfULdZz3SPxIivECx8yN6ItFi7MJZN78nxHafYDari4twNXNFyuIMGorQFV9TOaRLQLHK7W7_KY8L68lHJTdBaXU6Zxm3OKuMcEDwqr7_1RnxtmXgA47z3r2JXdwrYnfgWaTXP4Eb-_7Ae-nZxnNeh56pAQexS2acznMrV6VzFTRIEvnJPm1RJQ69WnpFqKmVIgBieQL1dMFxD2swUdDRbT-efJSxZ9tByHpQ2QsbTHJzQwZLEeeIm9ZboSIQWuWCmFxmv1bKYphg',
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ2NGpJTWZ5cVpWSUVUOEU5OTNRanVVOFpTUVJOVTA3aFVydVl2emNBWFJ3In0.eyJleHAiOjE3MTQyOTU1MDEsImlhdCI6MTcxNDI5NTIwMSwiYXV0aF90aW1lIjoxNzE0MjkzNzc2LCJqdGkiOiIyYjEwYWJmOS01Mzg2LTRjN2MtYmNlYS00MDE4NGZlMGE3NWUiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6ImFlOGIyZjNlLWM4ZWYtNGQ4MC1hOTBiLTE1NmFjMTJiNDBlMyIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiJiZmExY2I0NC01NDhiLTRjNzAtODdhMC1mYzg2NTIwYzkzM2UiLCJzZXNzaW9uX3N0YXRlIjoiOWViNDk2MDItZjVhYi00ZjI4LTlmYzktOTM1NmRkZGM2OWU2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjllYjQ5NjAyLWY1YWItNGYyOC05ZmM5LTkzNTZkZGRjNjllNiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.bASdmrUOt7lkQInlGa3E7S7VLEoh-kcAuliNTBKBNo3YlAta003cxY8JT3HqPKL81FQrM-IvE9ldUetfe0kyAvAvZeqlQsIdVogxxnFYeEF0olZIdwGQa4uB6v7JNwMbzEPkNYrU-Xn3saU5rRn5C7bfkp8fur1IdAfeO2JRsK1oauaV9kC8bSegrEX9sDGiys_XQkJdEu31GvuPFu43bLvG14Y23KP90b5JCyFLxnBCfAlOVUN9UjMnCp1NGFfxcF52fnIvmjYpnYLR9MiOcUvRN_muQPVNlLk8ukmt_FBJ-eSSUDQ7PTcj7eRoRWzH9FAEHbBUgqS9esS8Q_7ymg',
       },
       params: {},
       returnBody: true,
@@ -234,12 +239,6 @@ class GetAllInventoryCall {
       alwaysAllowBody: false,
     );
   }
-
-  static List? inventory(dynamic response) => getJsonField(
-        response,
-        r'''$''',
-        true,
-      ) as List?;
 }
 
 class CreateInventoryCall {
