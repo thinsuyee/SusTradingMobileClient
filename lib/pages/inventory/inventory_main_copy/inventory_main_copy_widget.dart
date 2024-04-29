@@ -4,11 +4,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'inventory_main_model.dart';
-export 'inventory_main_model.dart';
+import 'inventory_main_copy_model.dart';
+export 'inventory_main_copy_model.dart';
 
-class InventoryMainWidget extends StatefulWidget {
-  const InventoryMainWidget({
+class InventoryMainCopyWidget extends StatefulWidget {
+  const InventoryMainCopyWidget({
     super.key,
     required this.inventoryMainTitle,
     bool? canAddItemToInventory,
@@ -18,18 +18,19 @@ class InventoryMainWidget extends StatefulWidget {
   final bool canAddItemToInventory;
 
   @override
-  State<InventoryMainWidget> createState() => _InventoryMainWidgetState();
+  State<InventoryMainCopyWidget> createState() =>
+      _InventoryMainCopyWidgetState();
 }
 
-class _InventoryMainWidgetState extends State<InventoryMainWidget> {
-  late InventoryMainModel _model;
+class _InventoryMainCopyWidgetState extends State<InventoryMainCopyWidget> {
+  late InventoryMainCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InventoryMainModel());
+    _model = createModel(context, () => InventoryMainCopyModel());
 
     _model.searchBarTextController ??= TextEditingController();
     _model.searchBarFocusNode ??= FocusNode();
@@ -280,47 +281,10 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Row(
+                                                    const Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  -1.0, -1.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        10.0),
-                                                            child: Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                getJsonField(
-                                                                  inventoryDataItem,
-                                                                  r'''$.product.name''',
-                                                                )?.toString(),
-                                                                'Product Name',
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Outfit',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
+                                                      children: [],
                                                     ),
                                                     Row(
                                                       mainAxisSize:
@@ -374,7 +338,7 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                               child: Text(
                                                                 getJsonField(
                                                                   inventoryDataItem,
-                                                                  r'''$.skuCode''',
+                                                                  r'''$.id''',
                                                                 ).toString(),
                                                                 textAlign:
                                                                     TextAlign
@@ -445,8 +409,9 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                       -1.0),
                                                               child: Text(
                                                                 getJsonField(
-                                                                  inventoryDataItem,
-                                                                  r'''$.owner''',
+                                                                  listViewGetAllInventoryResponse
+                                                                      .jsonBody,
+                                                                  r'''$.id''',
                                                                 ).toString(),
                                                                 textAlign:
                                                                     TextAlign
@@ -516,63 +481,11 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                               ),
                                                             ],
                                                           ),
-                                                          Column(
+                                                          const Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    const AlignmentDirectional(
-                                                                        -1.0,
-                                                                        -1.0),
-                                                                child: Text(
-                                                                  () {
-                                                                    if (getJsonField(
-                                                                      inventoryDataItem,
-                                                                      r'''$.inStock''',
-                                                                    )) {
-                                                                      return 'In Stock';
-                                                                    } else if (!getJsonField(
-                                                                      inventoryDataItem,
-                                                                      r'''$.inStock''',
-                                                                    )) {
-                                                                      return 'Out of Stock';
-                                                                    } else {
-                                                                      return 'N.A.';
-                                                                    }
-                                                                  }(),
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        color:
-                                                                            () {
-                                                                          if (getJsonField(
-                                                                            inventoryDataItem,
-                                                                            r'''$.inStock''',
-                                                                          )) {
-                                                                            return FlutterFlowTheme.of(context).success;
-                                                                          } else if (!getJsonField(
-                                                                            inventoryDataItem,
-                                                                            r'''$.inStock''',
-                                                                          )) {
-                                                                            return FlutterFlowTheme.of(context).error;
-                                                                          } else {
-                                                                            return FlutterFlowTheme.of(context).secondaryText;
-                                                                          }
-                                                                        }(),
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                            children: [],
                                                           ),
                                                         ],
                                                       ),
@@ -581,105 +494,6 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                 ),
                                               ),
                                             ),
-                                            if (widget.canAddItemToInventory ==
-                                                true)
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    'AddUpdateInventory',
-                                                    queryParameters: {
-                                                      'inventoryTitle':
-                                                          serializeParam(
-                                                        'Edit Inventory Details',
-                                                        ParamType.String,
-                                                      ),
-                                                      'productName':
-                                                          serializeParam(
-                                                        getJsonField(
-                                                          inventoryDataItem,
-                                                          r'''$.product.name''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'skuCode': serializeParam(
-                                                        getJsonField(
-                                                          inventoryDataItem,
-                                                          r'''$.skuCode''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'inventoryOwner':
-                                                          serializeParam(
-                                                        getJsonField(
-                                                          inventoryDataItem,
-                                                          r'''$.owner''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'price': serializeParam(
-                                                        getJsonField(
-                                                          inventoryDataItem,
-                                                          r'''$.product.price''',
-                                                        ),
-                                                        ParamType.double,
-                                                      ),
-                                                      'quantity':
-                                                          serializeParam(
-                                                        getJsonField(
-                                                          inventoryDataItem,
-                                                          r'''$.quantity''',
-                                                        ),
-                                                        ParamType.int,
-                                                      ),
-                                                      'productDesc':
-                                                          serializeParam(
-                                                        getJsonField(
-                                                          inventoryDataItem,
-                                                          r'''$.product.description''',
-                                                        ).toString(),
-                                                        ParamType.String,
-                                                      ),
-                                                      'canUpdateInventory':
-                                                          serializeParam(
-                                                        true,
-                                                        ParamType.bool,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                                child: const Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Icon(
-                                                        Icons
-                                                            .chevron_right_rounded,
-                                                        color:
-                                                            Color(0xFF57636C),
-                                                        size: 24.0,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
                                           ],
                                         ),
                                       ),

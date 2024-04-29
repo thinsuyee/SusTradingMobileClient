@@ -301,7 +301,7 @@ class _HomeDashboardAdminWidgetState extends State<HomeDashboardAdminWidget> {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'InventoryMain',
+                                              'InventoryMainCopy',
                                               queryParameters: {
                                                 'inventoryMainTitle':
                                                     serializeParam(

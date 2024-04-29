@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -102,14 +101,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-              child: AuthUserStreamWidget(
-                builder: (context) => Text(
-                  currentUserDisplayName,
-                  style: FlutterFlowTheme.of(context).headlineLarge.override(
-                        fontFamily: 'Outfit',
-                        letterSpacing: 0.0,
-                      ),
-                ),
+              child: Text(
+                'Bob Lee',
+                style: FlutterFlowTheme.of(context).headlineLarge.override(
+                      fontFamily: 'Outfit',
+                      letterSpacing: 0.0,
+                    ),
               ),
             ),
             Padding(

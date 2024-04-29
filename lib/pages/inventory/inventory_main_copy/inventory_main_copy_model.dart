@@ -1,10 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
-import 'inventory_main_widget.dart' show InventoryMainWidget;
+import 'inventory_main_copy_widget.dart' show InventoryMainCopyWidget;
 import 'package:flutter/material.dart';
 
-class InventoryMainModel extends FlutterFlowModel<InventoryMainWidget> {
+class InventoryMainCopyModel extends FlutterFlowModel<InventoryMainCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 
-import '/auth/base_auth_user_provider.dart';
+import '/auth/custom_auth/custom_auth_user_provider.dart';
 
 import '/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -22,8 +22,8 @@ class AppStateNotifier extends ChangeNotifier {
   static AppStateNotifier? _instance;
   static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
 
-  BaseAuthUser? initialUser;
-  BaseAuthUser? user;
+  SusTradingCoAuthUser? initialUser;
+  SusTradingCoAuthUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -48,7 +48,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(BaseAuthUser newUser) {
+  void update(SusTradingCoAuthUser newUser) {
     final shouldUpdate =
         user?.uid == null || newUser.uid == null || user?.uid != newUser.uid;
     initialUser ??= newUser;
@@ -73,14 +73,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const ProductListWidget() : const LoginWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? const ProductListWidget()
+          : const InventoryMainWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? const ProductListWidget() : const LoginWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? const ProductListWidget()
+              : const InventoryMainWidget(),
         ),
         FFRoute(
           name: 'AddUpdateInventory',
@@ -89,6 +91,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             inventoryTitle: params.getParam(
               'inventoryTitle',
               ParamType.String,
+            ),
+            productName: params.getParam(
+              'productName',
+              ParamType.String,
+            ),
+            skuCode: params.getParam(
+              'skuCode',
+              ParamType.String,
+            ),
+            inventoryOwner: params.getParam(
+              'inventoryOwner',
+              ParamType.String,
+            ),
+            price: params.getParam(
+              'price',
+              ParamType.double,
+            ),
+            quantity: params.getParam(
+              'quantity',
+              ParamType.int,
+            ),
+            productDesc: params.getParam(
+              'productDesc',
+              ParamType.String,
+            ),
+            canUpdateInventory: params.getParam(
+              'canUpdateInventory',
+              ParamType.bool,
             ),
           ),
         ),
@@ -149,10 +179,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'canAddItemToInventory',
               ParamType.bool,
             ),
-            inStockVar: params.getParam(
-              'inStockVar',
-              ParamType.Color,
-            ),
           ),
         ),
         FFRoute(
@@ -179,6 +205,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ProductListCopy',
           path: '/ProductListCopy',
           builder: (context, params) => const ProductListCopyWidget(),
+        ),
+        FFRoute(
+          name: 'InventoryMainCopy',
+          path: '/inventoryMainCopy',
+          builder: (context, params) => InventoryMainCopyWidget(
+            inventoryMainTitle: params.getParam(
+              'inventoryMainTitle',
+              ParamType.String,
+            ),
+            canAddItemToInventory: params.getParam(
+              'canAddItemToInventory',
+              ParamType.bool,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -351,7 +391,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/login';
+            return '/inventoryMain';
           }
           return null;
         },
