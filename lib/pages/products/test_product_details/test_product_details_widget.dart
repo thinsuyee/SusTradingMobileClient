@@ -88,13 +88,11 @@ class _TestProductDetailsWidgetState extends State<TestProductDetailsWidget> {
               ),
             ),
             title: Text(
-              ' ',
-              style: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Lexend Deca',
-                    color: const Color(0xFF151B1E),
-                    fontSize: 16.0,
+              ' Product Details',
+              style: FlutterFlowTheme.of(context).titleLarge.override(
+                    fontFamily: 'Outfit',
+                    color: FlutterFlowTheme.of(context).secondary,
                     letterSpacing: 0.0,
-                    fontWeight: FontWeight.w500,
                   ),
             ),
             actions: [
@@ -154,7 +152,7 @@ class _TestProductDetailsWidgetState extends State<TestProductDetailsWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(0.0),
                             child: Image.network(
-                              'https://images.unsplash.com/photo-1566958769312-82cef41d19ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fHByb2R1Y3RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+                              'https://images.unsplash.com/photo-1656543802898-41c8c46683a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwzfHxteXN0ZXJ5JTIwcHJvZHVjdHxlbnwwfHx8fDE3MTQ0MDc2NzN8MA&ixlib=rb-4.0.3&q=80&w=1080',
                               width: double.infinity,
                               height: 430.0,
                               fit: BoxFit.cover,
