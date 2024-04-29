@@ -195,18 +195,17 @@ class SingleProductsCall {
 }
 
 class GetProductsAPICall {
-  static Future<ApiCallResponse> call({
-    String? authToken = '',
-  }) async {
+  static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProductsAPI',
-      apiUrl: 'https://524f-219-75-69-73.ngrok-free.app/api/product',
+      apiUrl: 'https://c57f-219-75-69-73.ngrok-free.app/api/product',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
         'Accept-Language': 'en-US,en;q=0.9',
-        'Authorization': 'Bearer $authToken',
+        'Authorization':
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5TllVWjhrZU9ubExJZDBhdE5IMWdVVzA4UkMzbEYtMExZQUxOc1NPZDRnIn0.eyJleHAiOjE3MTQzNzg5MjMsImlhdCI6MTcxNDM3ODYyMywiYXV0aF90aW1lIjoxNzE0Mzc4NjIwLCJqdGkiOiI1ZWIyZWQxMS0xZmY2LTQ1NTAtYTE1ZS04MGRhMjNiN2M2YWQiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbInJlYWxtLW1hbmFnZW1lbnQiLCJiYWNrZW5kIiwiYnJva2VyIiwiYWNjb3VudCJdLCJzdWIiOiJmYzY0YWQ1YS0zYjJkLTQ2M2YtOTg2Yy1hZTg5OTZjMTQ0M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmcm9udGVuZCIsIm5vbmNlIjoiNTg3NDZiNTAtOWI3OS00ZmViLWJjNzUtZWI2NjQ3Nzc3MGNiIiwic2Vzc2lvbl9zdGF0ZSI6IjIwNjIzOGNhLTBjN2UtNDA2Mi1iZjY4LTM0ZGUxOWVjYTljNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXN1c2NvbXBhbnlyZWFsbSIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsicmVhbG0tbWFuYWdlbWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlYWxtIiwidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsInJlYWxtLWFkbWluIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJicm9rZXIiOnsicm9sZXMiOlsicmVhZC10b2tlbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctYXBwbGljYXRpb25zIiwidmlldy1jb25zZW50Iiwidmlldy1ncm91cHMiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsIm1hbmFnZS1jb25zZW50IiwiZGVsZXRlLWFjY291bnQiLCJ2aWV3LXByb2ZpbGUiXX0sImZyb250ZW5kIjp7InJvbGVzIjpbIkNVU1RPTUVSIiwiQURNSU4iLCJTQUxFUyJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIyMDYyMzhjYS0wYzdlLTQwNjItYmY2OC0zNGRlMTllY2E5YzQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJNYXJ5IFRhbiIsInByZWZlcnJlZF91c2VybmFtZSI6Im1hcnkiLCJnaXZlbl9uYW1lIjoiTWFyeSIsImZhbWlseV9uYW1lIjoiVGFuIn0.bngQrRkYzFm1OGJfF9GUhbcZuCDkSHnECNmm2KC5ZdpmhEPZfGKrLZnKe10-SnOaki_DMOmd-yfPmkCvKkelUqdDh7EW8r_AupEmA969CBDgTv8wYGNkz5tvXindMpetEbsB6N5GOIpxahpJ_2tBHvceCN0y7pPecnvESxr2xJn8H7qojBLlqtOGcspTLFecYOgspC5hDgu2Ki90OF6kVM3OQD8FKikP1acorQgZnZQYSS1eukRoYbuWhOrDVMHLwMxrA-GhFpkfmNh-7cbOSr-y-O22tkHGt7eQ4gEpzkq0RcjVWlBV9vkpmUg1NMo461_Vv9fkdqLPqpD8ZHrK0w',
       },
       params: {},
       returnBody: true,
@@ -219,19 +218,17 @@ class GetProductsAPICall {
 }
 
 class GetAllProductsCall {
-  static Future<ApiCallResponse> call({
-    String? authToken = '',
-  }) async {
+  static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getAllProducts',
-      apiUrl: 'http://0fe4-103-6-150-177.ngrok-free.app/api/product',
+      apiUrl: 'http://7911-103-6-150-177.ngrok-free.app/api/product',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
         'Accept-Language': 'en-US,en;q=0.9',
         'Authorization':
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzaWsxdnBTcmJTU2JvTHUzVTEzRzloTTh0aVpIYTlSVGZFRXk3OU9HOG5jIn0.eyJleHAiOjE3MTQzNjY1MTQsImlhdCI6MTcxNDM2NjIxNCwiYXV0aF90aW1lIjoxNzE0MzY1MzAwLCJqdGkiOiJhY2ZkZjYxNC1kNTRiLTQ1MjktYTUxNC0yZmRiN2IxNWUxNTUiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6IjMzMzFmMjBjLTM3NDAtNDFiMC05NGYyLTI4MzEzNjU1YmNlMCIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiIxZjY5ZmU3Zi1iNjNiLTQ4YWMtOTg4Zi0wOTdmM2JhM2NhZGMiLCJzZXNzaW9uX3N0YXRlIjoiMTlhNzhkZGQtY2IzNi00NzRlLWE4N2MtZjY1YmRkOWFmYTRiIiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjE5YTc4ZGRkLWNiMzYtNDc0ZS1hODdjLWY2NWJkZDlhZmE0YiIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.JhXzsRCw2nj_97_pwlNpEIj386c20QtX7xnYK2Uv7gGSGrb0OJDXyokg_3MZ-YnE3BnxWVc4WUSjy0wYZbyPp89wMdfHRl8OLUTh43v4wreoBVXiHHZtB16g_UNji3-QdYEsTTF61AKWIpO9y_mwv4qEDXQY5USIzh81iGlcxHSJ2wiQ-neYERTGkVvigsEbsfBzNa5qnX85DQULhZkCJ6Rlm4TBsCoJ7sZTfmTNU_jr8TEy2P3jn0wQs_bidZolZO3JHdjua9VfFv3rpgG_P185JIDrEq2Dc_T-ds5IlqcH3UUDG--9ZwEKc32PFEVQC7iuikF94uttanrKlNFckw',
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5MzJJZV9TOE1RcFgzbXVQSXdLbGtOR3hCOENnODNXRHJ0bUt1eGJPTmdnIn0.eyJleHAiOjE3MTQzNzY3MTgsImlhdCI6MTcxNDM3NjQxOCwiYXV0aF90aW1lIjoxNzE0MzcyMTA2LCJqdGkiOiJiMjhiMGI1NC1hOWNlLTQ1YzItODFmNC1lYzU2YTdkYWQ5MTAiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6IjRmOTA0NGIyLTVjODQtNGMyMi1iOTU0LTk2ZGVjOWEwMjFhMSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiI4ZDliN2EyNi1hYTI4LTRhZDMtYTMzMS0yODE2YTlhYzM3NjkiLCJzZXNzaW9uX3N0YXRlIjoiMGVjYTMwYjItZmI4OS00ZDI0LTkzNGMtZjRjOWY5MWQ0MjA0IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjBlY2EzMGIyLWZiODktNGQyNC05MzRjLWY0YzlmOTFkNDIwNCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.xSBc2Gv31NF_2TpsvZ72Grqf0n5dSAnb-DDTY1UU07Em1iUiUhKWWDQt6ZAq-5w6LG3hZKj69-JfxTmW-PgWN8u2u7BPlMDQ3sS7IP9GpUzZO7OSNV0QTgiTsAA1OmrxXwNMyoh61RevTO9b9-addhLxGUQll3UduGSe_W7Aru3PWKBaPJnXhmmh7BY851EZV0pu5ukGfP2GTraNgKdtGvSgyiTd0SXKgmEerB8MxmAqjhBcet5ivglZwc0Z517IpWEyJfQQqrQeOvThKIOnW9gkiqpm8VeR_O6jcLp9Tp-mC_2EQuviKCJJplYfE3fiXAnvQkNYHzp1xkDvdbWPhA',
       },
       params: {},
       returnBody: true,
@@ -251,10 +248,11 @@ class GetAllProductsCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static dynamic getAllProducts(dynamic response) => getJsonField(
+  static List? getAllProducts(dynamic response) => getJsonField(
         response,
         r'''$''',
-      );
+        true,
+      ) as List?;
 }
 
 class GetAllInventoryCall {
@@ -266,9 +264,8 @@ class GetAllInventoryCall {
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
-        'Accept-Language': 'en-US,en;q=0.9',
         'Authorization':
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5MzJJZV9TOE1RcFgzbXVQSXdLbGtOR3hCOENnODNXRHJ0bUt1eGJPTmdnIn0.eyJleHAiOjE3MTQzNzUxNzMsImlhdCI6MTcxNDM3NDg3MywiYXV0aF90aW1lIjoxNzE0MzcyMTA2LCJqdGkiOiI3ZDRlNDA3NS1lNTAyLTRkOGMtODkyNy1kNDliM2M3M2YzODEiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6IjRmOTA0NGIyLTVjODQtNGMyMi1iOTU0LTk2ZGVjOWEwMjFhMSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiJkOTk1OGU0OC04MGY4LTQyYTEtODEzYi1kOTUwNDAwOWQ2YzAiLCJzZXNzaW9uX3N0YXRlIjoiMGVjYTMwYjItZmI4OS00ZDI0LTkzNGMtZjRjOWY5MWQ0MjA0IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjBlY2EzMGIyLWZiODktNGQyNC05MzRjLWY0YzlmOTFkNDIwNCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.MK2IletpImhhHD-wznamh9RIy7kHkEqWE4j56YG-KbkeANvG4x4fzplKCAvmcUO7Dp3Qw_ftZ916pYqbodpjiD4qUL_UqwYbsNq5_XerixYL1PQhzz5IuUX9JxaUxoJs9x90PmfH6yxER1Y673FPlWlsKuPouF3HbNFooboLfgnAHMh1AZPSUV29e81xWjBQ66zjn7I7eIN9nuSCTCYZJe65WZgasn8ulKp6Wv08lqNqLw1AacZnNu65lv76WCZ4v6nrn4rdye40HAaEs8V5jnSgWPmAhiBeq7LN8cWVNN5peiFmoaM2wgTCLRtl6AiM7zfyMMs419A6PgVdHarPwg',
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ5MzJJZV9TOE1RcFgzbXVQSXdLbGtOR3hCOENnODNXRHJ0bUt1eGJPTmdnIn0.eyJleHAiOjE3MTQzNzg0NDMsImlhdCI6MTcxNDM3ODE0MywiYXV0aF90aW1lIjoxNzE0MzcyMTA2LCJqdGkiOiJkYWYwODhkMS1lOGMzLTQwNDAtODA5MC03NDQyYjAyOGM3NGUiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbImJhY2tlbmQiLCJhY2NvdW50Il0sInN1YiI6IjRmOTA0NGIyLTVjODQtNGMyMi1iOTU0LTk2ZGVjOWEwMjFhMSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250ZW5kIiwibm9uY2UiOiJlNjQyMjVkZC1hMzdjLTQ0OWUtOWVmZi1lODI0ZTgwOWRlZjQiLCJzZXNzaW9uX3N0YXRlIjoiMGVjYTMwYjItZmI4OS00ZDI0LTkzNGMtZjRjOWY5MWQ0MjA0IiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc3VzY29tcGFueXJlYWxtIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJmcm9udGVuZCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6IjBlY2EzMGIyLWZiODktNGQyNC05MzRjLWY0YzlmOTFkNDIwNCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoiYmVhIn0.NutncbeOM27WBa_QyLPTq_Eq3iksxe_gKH6XIuMB3OPgPxIn7A450o9FgXT18RDS2KM7r0N9IAr7T8MXil9IVcjX4NwCd-wtzn-a2-ihg5yPHK82Yz0a5HLredo6b1SwYI7sytaQY4tKy9tYDBumRnGMN8rC2en2C8czKLBa-gFbBiE7nbn4ZwNdjHttBkTrb4IeuTCXtBT0ODrUCayP_lX1SPYkUO4nyIZEeP4nHYaAw9yMHaerWQCRjvhTM-e56CfGUTNbS8VXQtH48RSBZ04mBDWFgazKOLGLQiKkdSGV-pGXVAC5bfNOTlD2QRQNZ3dbfZcsd_FD3df87Z7l6Q',
       },
       params: {},
       returnBody: true,
@@ -278,6 +275,21 @@ class GetAllInventoryCall {
       alwaysAllowBody: false,
     );
   }
+
+  static List? getAllInventory(dynamic response) => getJsonField(
+        response,
+        r'''$''',
+        true,
+      ) as List?;
+  static List<String>? getOwners(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].owner''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class CreateInventoryCall {
