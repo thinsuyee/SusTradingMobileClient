@@ -32,7 +32,7 @@ class TestGetProductsCall {
 
 class QueryProductByIDCall {
   static Future<ApiCallResponse> call({
-    String? id = '',
+    String? id = '662e39ac1eb6f002286c1ffb',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'queryProductByID',
