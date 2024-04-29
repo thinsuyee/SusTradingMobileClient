@@ -594,14 +594,14 @@ class _HomeDashboardCustomerWidgetState
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           context.pushNamed(
-                                            'InventoryM',
+                                            'InventoryMain',
                                             queryParameters: {
-                                              'mainInventoryTitle':
+                                              'inventoryMainTitle':
                                                   serializeParam(
                                                 'View Inventory',
                                                 ParamType.String,
                                               ),
-                                              'canAddOrUpdateInventory':
+                                              'canAddItemToInventory':
                                                   serializeParam(
                                                 false,
                                                 ParamType.bool,

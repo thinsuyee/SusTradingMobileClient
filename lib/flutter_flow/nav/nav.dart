@@ -73,16 +73,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? const ProductListWidget()
-          : const HomeDashboardCustomerWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? const ProductListWidget() : const ProductListWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? const ProductListWidget()
-              : const HomeDashboardCustomerWidget(),
+              : const ProductListWidget(),
         ),
         FFRoute(
           name: 'AddUpdateInventory',
@@ -391,7 +390,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/homeDashboardCustomer';
+            return '/ProductList';
           }
           return null;
         },
