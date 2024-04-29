@@ -92,6 +92,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'inventoryTitle',
               ParamType.String,
             ),
+            productName: params.getParam(
+              'productName',
+              ParamType.String,
+            ),
+            skuCode: params.getParam(
+              'skuCode',
+              ParamType.String,
+            ),
+            inventoryOwner: params.getParam(
+              'inventoryOwner',
+              ParamType.String,
+            ),
+            price: params.getParam(
+              'price',
+              ParamType.double,
+            ),
+            quantity: params.getParam(
+              'quantity',
+              ParamType.int,
+            ),
+            productDesc: params.getParam(
+              'productDesc',
+              ParamType.String,
+            ),
+            canUpdateInventory: params.getParam(
+              'canUpdateInventory',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
@@ -151,10 +179,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'canAddItemToInventory',
               ParamType.bool,
             ),
-            inStockVar: params.getParam(
-              'inStockVar',
-              ParamType.Color,
-            ),
           ),
         ),
         FFRoute(
@@ -193,10 +217,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             canAddItemToInventory: params.getParam(
               'canAddItemToInventory',
               ParamType.bool,
-            ),
-            inStockVar: params.getParam(
-              'inStockVar',
-              ParamType.Color,
             ),
           ),
         )
