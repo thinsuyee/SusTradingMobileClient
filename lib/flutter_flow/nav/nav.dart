@@ -75,14 +75,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? const ProductListWidget()
-          : const HomeDashboardAdminWidget(),
+          : const HomeDashboardCustomerWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? const ProductListWidget()
-              : const HomeDashboardAdminWidget(),
+              : const HomeDashboardCustomerWidget(),
         ),
         FFRoute(
           name: 'AddUpdateInventory',
@@ -216,6 +216,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             canAddItemToInventory: params.getParam(
               'canAddItemToInventory',
+              ParamType.bool,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'InventoryM',
+          path: '/inventoryM',
+          builder: (context, params) => InventoryMWidget(
+            mainInventoryTitle: params.getParam(
+              'mainInventoryTitle',
+              ParamType.String,
+            ),
+            canAddOrUpdateInventory: params.getParam(
+              'canAddOrUpdateInventory',
               ParamType.bool,
             ),
           ),
@@ -391,7 +405,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/homeDashboardAdmin';
+            return '/homeDashboardCustomer';
           }
           return null;
         },

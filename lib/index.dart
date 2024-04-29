@@ -27,3 +27,5 @@ export '/pages/products/product_list_copy/product_list_copy_widget.dart'
     show ProductListCopyWidget;
 export '/pages/inventory/inventory_main_test/inventory_main_test_widget.dart'
     show InventoryMainTestWidget;
+export '/pages/inventory/inventory_m/inventory_m_widget.dart'
+    show InventoryMWidget;
