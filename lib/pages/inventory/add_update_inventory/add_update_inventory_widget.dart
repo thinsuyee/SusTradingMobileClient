@@ -21,8 +21,8 @@ class AddUpdateInventoryWidget extends StatefulWidget {
     this.price,
     this.quantity,
     this.productDesc,
-    required this.canUpdateInventory,
-  });
+    bool? canUpdateInventory,
+  }) : canUpdateInventory = canUpdateInventory ?? true;
 
   final String? inventoryTitle;
   final String? productName;
@@ -31,7 +31,7 @@ class AddUpdateInventoryWidget extends StatefulWidget {
   final double? price;
   final int? quantity;
   final String? productDesc;
-  final bool? canUpdateInventory;
+  final bool canUpdateInventory;
 
   @override
   State<AddUpdateInventoryWidget> createState() =>
@@ -257,8 +257,8 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                                                       .fromSTEB(
                                                           16.0, 4.0, 16.0, 4.0),
                                                   hidesUnderline: true,
-                                                  disabled: widget
-                                                      .canUpdateInventory!,
+                                                  disabled:
+                                                      widget.canUpdateInventory,
                                                   isOverButton: true,
                                                   isSearchable: true,
                                                   isMultiSelect: false,
@@ -363,8 +363,8 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                                                       .fromSTEB(
                                                           16.0, 4.0, 16.0, 4.0),
                                                   hidesUnderline: true,
-                                                  disabled: widget
-                                                      .canUpdateInventory!,
+                                                  disabled:
+                                                      widget.canUpdateInventory,
                                                   isOverButton: true,
                                                   isSearchable: true,
                                                   isMultiSelect: false,
@@ -380,7 +380,7 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                                               textCapitalization:
                                                   TextCapitalization.words,
                                               readOnly:
-                                                  widget.canUpdateInventory!,
+                                                  widget.canUpdateInventory,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelText:
@@ -971,7 +971,7 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                           final buttonCreateInventoryResponse = snapshot.data!;
                           return FFButtonWidget(
                             onPressed: () async {
-                              if (widget.canUpdateInventory! &&
+                              if (widget.canUpdateInventory &&
                                       (widget.inventoryTitle ==
                                           'Edit Inventory Details')
                                   ? true
