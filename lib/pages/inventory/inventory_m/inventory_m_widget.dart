@@ -11,11 +11,9 @@ class InventoryMWidget extends StatefulWidget {
   const InventoryMWidget({
     super.key,
     String? mainInventoryTitle,
-    this.canAddOrUpdateInventory,
   }) : mainInventoryTitle = mainInventoryTitle ?? 'Inventory';
 
   final String mainInventoryTitle;
-  final bool? canAddOrUpdateInventory;
 
   @override
   State<InventoryMWidget> createState() => _InventoryMWidgetState();
@@ -167,28 +165,23 @@ class _InventoryMWidgetState extends State<InventoryMWidget> {
                     ),
                   ),
                 ),
-                if (valueOrDefault<bool>(
-                  widget.canAddOrUpdateInventory,
-                  false,
-                ))
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 12.0, 0.0),
-                    child: FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30.0,
-                      borderWidth: 1.0,
-                      buttonSize: 50.0,
-                      icon: const Icon(
-                        Icons.add,
-                        color: Color(0xFF14181B),
-                        size: 30.0,
-                      ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 12.0, 0.0),
+                  child: FlutterFlowIconButton(
+                    borderColor: Colors.transparent,
+                    borderRadius: 30.0,
+                    borderWidth: 1.0,
+                    buttonSize: 50.0,
+                    icon: const Icon(
+                      Icons.add,
+                      color: Color(0xFF14181B),
+                      size: 30.0,
                     ),
+                    onPressed: () {
+                      print('IconButton pressed ...');
+                    },
                   ),
+                ),
               ],
             ),
             Padding(
@@ -221,10 +214,8 @@ class _InventoryMWidgetState extends State<InventoryMWidget> {
                       final listViewGetAllInventoryResponse = snapshot.data!;
                       return Builder(
                         builder: (context) {
-                          final inventoryData = getJsonField(
-                            listViewGetAllInventoryResponse.jsonBody,
-                            r'''$''',
-                          ).toList();
+                          final inventoryData =
+                              listViewGetAllInventoryResponse.jsonBody.toList();
                           return RefreshIndicator(
                             onRefresh: () async {
                               setState(() => _model.apiRequestCompleter = null);
@@ -590,30 +581,25 @@ class _InventoryMWidgetState extends State<InventoryMWidget> {
                                               ),
                                             ),
                                           ),
-                                          if (valueOrDefault<bool>(
-                                            widget.canAddOrUpdateInventory,
-                                            false,
-                                          ))
-                                            const Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 0.0, 0.0),
-                                                  child: Icon(
-                                                    Icons.chevron_right_rounded,
-                                                    color: Color(0xFF57636C),
-                                                    size: 24.0,
-                                                  ),
+                                          const Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 4.0, 0.0, 0.0),
+                                                child: Icon(
+                                                  Icons.chevron_right_rounded,
+                                                  color: Color(0xFF57636C),
+                                                  size: 24.0,
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
+                                          ),
                                         ],
                                       ),
                                     ),

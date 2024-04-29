@@ -228,10 +228,8 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                         return Builder(
                           builder: (context) {
                             final inventoryData =
-                                GetAllInventoryCall.getAllInventory(
-                                      listViewGetAllInventoryResponse.jsonBody,
-                                    )?.toList() ??
-                                    [];
+                                listViewGetAllInventoryResponse.jsonBody
+                                    .toList();
                             return RefreshIndicator(
                               onRefresh: () async {
                                 setState(
@@ -377,10 +375,14 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                       -1.0,
                                                                       -1.0),
                                                               child: Text(
-                                                                getJsonField(
-                                                                  inventoryDataItem,
-                                                                  r'''$.skuCode''',
-                                                                ).toString(),
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  getJsonField(
+                                                                    inventoryDataItem,
+                                                                    r'''$.skuCode''',
+                                                                  )?.toString(),
+                                                                  '-',
+                                                                ),
                                                                 textAlign:
                                                                     TextAlign
                                                                         .start,
@@ -449,82 +451,14 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                       -1.0,
                                                                       -1.0),
                                                               child: Text(
-                                                                getJsonField(
-                                                                  inventoryDataItem,
-                                                                  r'''$.owner''',
-                                                                ).toString(),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      -1.0),
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            5.0,
-                                                                            0.0),
-                                                                child: Text(
-                                                                  'Owned By:',
-                                                                  textAlign:
-                                                                      TextAlign
-                                                                          .start,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Readex Pro',
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  getJsonField(
+                                                                    inventoryDataItem,
+                                                                    r'''$.owner''',
+                                                                  )?.toString(),
+                                                                  '-',
                                                                 ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Align(
-                                                              alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      -1.0),
-                                                              child: Text(
-                                                                getJsonField(
-                                                                  inventoryDataItem,
-                                                                  r'''$.name''',
-                                                                ).toString(),
                                                                 textAlign:
                                                                     TextAlign
                                                                         .start,
@@ -604,21 +538,25 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                         -1.0,
                                                                         -1.0),
                                                                 child: Text(
-                                                                  () {
-                                                                    if (getJsonField(
-                                                                      inventoryDataItem,
-                                                                      r'''$.inStock''',
-                                                                    )) {
-                                                                      return 'In Stock';
-                                                                    } else if (!getJsonField(
-                                                                      inventoryDataItem,
-                                                                      r'''$.inStock''',
-                                                                    )) {
-                                                                      return 'Out of Stock';
-                                                                    } else {
-                                                                      return 'N.A.';
-                                                                    }
-                                                                  }(),
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    () {
+                                                                      if (getJsonField(
+                                                                        inventoryDataItem,
+                                                                        r'''$.inStock''',
+                                                                      )) {
+                                                                        return 'In Stock';
+                                                                      } else if (!getJsonField(
+                                                                        inventoryDataItem,
+                                                                        r'''$.inStock''',
+                                                                      )) {
+                                                                        return 'Out of Stock';
+                                                                      } else {
+                                                                        return 'N.A.';
+                                                                      }
+                                                                    }(),
+                                                                    '-',
+                                                                  ),
                                                                   textAlign:
                                                                       TextAlign
                                                                           .start,

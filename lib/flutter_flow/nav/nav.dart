@@ -213,10 +213,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'mainInventoryTitle',
               ParamType.String,
             ),
-            canAddOrUpdateInventory: params.getParam(
-              'canAddOrUpdateInventory',
-              ParamType.bool,
-            ),
           ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
