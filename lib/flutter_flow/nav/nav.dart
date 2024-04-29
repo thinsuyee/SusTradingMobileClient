@@ -207,20 +207,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const ProductListCopyWidget(),
         ),
         FFRoute(
-          name: 'InventoryMainTest',
-          path: '/inventoryMainTest',
-          builder: (context, params) => InventoryMainTestWidget(
-            inventoryMainTitle: params.getParam(
-              'inventoryMainTitle',
-              ParamType.String,
-            ),
-            canAddItemToInventory: params.getParam(
-              'canAddItemToInventory',
-              ParamType.bool,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'InventoryM',
           path: '/inventoryM',
           builder: (context, params) => InventoryMWidget(
