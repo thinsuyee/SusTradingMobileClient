@@ -80,8 +80,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const ProductListWidget()
-              : const ProductListWidget(),
+              ? const HomeDashboardAdminWidget()
+              : const HomeDashboardAdminWidget(),
         ),
         FFRoute(
           name: 'AddUpdateInventory',
