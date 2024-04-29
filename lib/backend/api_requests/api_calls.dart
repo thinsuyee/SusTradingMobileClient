@@ -37,7 +37,7 @@ class QueryProductByIDCall {
     return ApiManager.instance.makeApiCall(
       callName: 'queryProductByID',
       apiUrl:
-          'https://c57f-219-75-69-73.ngrok-free.app/api/product/query?id=$id',
+          'https://4b8d-219-75-69-73.ngrok-free.app/api/product/query?id=$id',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -152,7 +152,7 @@ class CreateProductCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateProduct',
-      apiUrl: 'https://524f-219-75-69-73.ngrok-free.app/api/product',
+      apiUrl: 'https://4b8d-219-75-69-73.ngrok-free.app/api/product',
       callType: ApiCallType.POST,
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -198,14 +198,14 @@ class GetProductsAPICall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProductsAPI',
-      apiUrl: 'https://c57f-219-75-69-73.ngrok-free.app/api/product',
+      apiUrl: 'https://4b8d-219-75-69-73.ngrok-free.app/api/product',
       callType: ApiCallType.GET,
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Encoding': 'gzip, deflate, br, zstd',
         'Accept-Language': 'en-US,en;q=0.9',
         'Authorization':
-            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5TllVWjhrZU9ubExJZDBhdE5IMWdVVzA4UkMzbEYtMExZQUxOc1NPZDRnIn0.eyJleHAiOjE3MTQzNzg5MjMsImlhdCI6MTcxNDM3ODYyMywiYXV0aF90aW1lIjoxNzE0Mzc4NjIwLCJqdGkiOiI1ZWIyZWQxMS0xZmY2LTQ1NTAtYTE1ZS04MGRhMjNiN2M2YWQiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbInJlYWxtLW1hbmFnZW1lbnQiLCJiYWNrZW5kIiwiYnJva2VyIiwiYWNjb3VudCJdLCJzdWIiOiJmYzY0YWQ1YS0zYjJkLTQ2M2YtOTg2Yy1hZTg5OTZjMTQ0M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmcm9udGVuZCIsIm5vbmNlIjoiNTg3NDZiNTAtOWI3OS00ZmViLWJjNzUtZWI2NjQ3Nzc3MGNiIiwic2Vzc2lvbl9zdGF0ZSI6IjIwNjIzOGNhLTBjN2UtNDA2Mi1iZjY4LTM0ZGUxOWVjYTljNCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXN1c2NvbXBhbnlyZWFsbSIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsicmVhbG0tbWFuYWdlbWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlYWxtIiwidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsInJlYWxtLWFkbWluIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJicm9rZXIiOnsicm9sZXMiOlsicmVhZC10b2tlbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctYXBwbGljYXRpb25zIiwidmlldy1jb25zZW50Iiwidmlldy1ncm91cHMiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsIm1hbmFnZS1jb25zZW50IiwiZGVsZXRlLWFjY291bnQiLCJ2aWV3LXByb2ZpbGUiXX0sImZyb250ZW5kIjp7InJvbGVzIjpbIkNVU1RPTUVSIiwiQURNSU4iLCJTQUxFUyJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIyMDYyMzhjYS0wYzdlLTQwNjItYmY2OC0zNGRlMTllY2E5YzQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJNYXJ5IFRhbiIsInByZWZlcnJlZF91c2VybmFtZSI6Im1hcnkiLCJnaXZlbl9uYW1lIjoiTWFyeSIsImZhbWlseV9uYW1lIjoiVGFuIn0.bngQrRkYzFm1OGJfF9GUhbcZuCDkSHnECNmm2KC5ZdpmhEPZfGKrLZnKe10-SnOaki_DMOmd-yfPmkCvKkelUqdDh7EW8r_AupEmA969CBDgTv8wYGNkz5tvXindMpetEbsB6N5GOIpxahpJ_2tBHvceCN0y7pPecnvESxr2xJn8H7qojBLlqtOGcspTLFecYOgspC5hDgu2Ki90OF6kVM3OQD8FKikP1acorQgZnZQYSS1eukRoYbuWhOrDVMHLwMxrA-GhFpkfmNh-7cbOSr-y-O22tkHGt7eQ4gEpzkq0RcjVWlBV9vkpmUg1NMo461_Vv9fkdqLPqpD8ZHrK0w',
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI5TllVWjhrZU9ubExJZDBhdE5IMWdVVzA4UkMzbEYtMExZQUxOc1NPZDRnIn0.eyJleHAiOjE3MTQzOTI4OTYsImlhdCI6MTcxNDM4OTg5NiwiYXV0aF90aW1lIjoxNzE0Mzg5ODk2LCJqdGkiOiI2YjE2MmFlYi0wMmZhLTQ0OGQtYjc4YS0wODc5Njk5NmFiNDAiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvU3VzQ29tcGFueVJlYWxtIiwiYXVkIjpbInJlYWxtLW1hbmFnZW1lbnQiLCJiYWNrZW5kIiwiYnJva2VyIiwiYWNjb3VudCJdLCJzdWIiOiJmYzY0YWQ1YS0zYjJkLTQ2M2YtOTg2Yy1hZTg5OTZjMTQ0M2QiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmcm9udGVuZCIsIm5vbmNlIjoiNDY2NzgyMTAtNzNhMC00NDMyLTk2YmMtZjgyNzMyZmY5ZWMwIiwic2Vzc2lvbl9zdGF0ZSI6ImQ5OTM5ODlmLTAwNzAtNGVmZS05MjFlLTVhYmJkYzg1NjM1NSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXN1c2NvbXBhbnlyZWFsbSIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsicmVhbG0tbWFuYWdlbWVudCI6eyJyb2xlcyI6WyJ2aWV3LXJlYWxtIiwidmlldy1pZGVudGl0eS1wcm92aWRlcnMiLCJtYW5hZ2UtaWRlbnRpdHktcHJvdmlkZXJzIiwiaW1wZXJzb25hdGlvbiIsInJlYWxtLWFkbWluIiwiY3JlYXRlLWNsaWVudCIsIm1hbmFnZS11c2VycyIsInF1ZXJ5LXJlYWxtcyIsInZpZXctYXV0aG9yaXphdGlvbiIsInF1ZXJ5LWNsaWVudHMiLCJxdWVyeS11c2VycyIsIm1hbmFnZS1ldmVudHMiLCJtYW5hZ2UtcmVhbG0iLCJ2aWV3LWV2ZW50cyIsInZpZXctdXNlcnMiLCJ2aWV3LWNsaWVudHMiLCJtYW5hZ2UtYXV0aG9yaXphdGlvbiIsIm1hbmFnZS1jbGllbnRzIiwicXVlcnktZ3JvdXBzIl19LCJiYWNrZW5kIjp7InJvbGVzIjpbIklOVkVOVE9SWS1VUERBVEUiLCJPUkRFUi1DUkVBVEUiLCJPUkRFUi1WSUVXIiwiUFJPRFVDVC1DUkVBVEUiLCJQUk9EVUNULURFTEVURSIsIklOVkVOVE9SWS1DUkVBVEUiLCJPUkRFUi1ERUxFVEUiLCJQUk9EVUNULVVQREFURSIsIklOVkVOVE9SWS1WSUVXIiwiUFJPRFVDVC1WSUVXIiwiQURNSU4iLCJPUkRFUi1VUERBVEUiLCJJTlZFTlRPUlktREVMRVRFIl19LCJicm9rZXIiOnsicm9sZXMiOlsicmVhZC10b2tlbiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctYXBwbGljYXRpb25zIiwidmlldy1jb25zZW50Iiwidmlldy1ncm91cHMiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsIm1hbmFnZS1jb25zZW50IiwiZGVsZXRlLWFjY291bnQiLCJ2aWV3LXByb2ZpbGUiXX0sImZyb250ZW5kIjp7InJvbGVzIjpbIkNVU1RPTUVSIiwiQURNSU4iLCJTQUxFUyJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJkOTkzOTg5Zi0wMDcwLTRlZmUtOTIxZS01YWJiZGM4NTYzNTUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJNYXJ5IFRhbiIsInByZWZlcnJlZF91c2VybmFtZSI6Im1hcnkiLCJnaXZlbl9uYW1lIjoiTWFyeSIsImZhbWlseV9uYW1lIjoiVGFuIn0.CUvb4p3xL9D8u0jtkI8imUJS_4AKNEfz-vu59a8xb_0HVDbhL3jyej0rBJCScXEptchfQ4YTt1L88qowHg8RiwZdzGQMISx6cvpcDl2yrWDrwxx4Kho-Mp9_GX1S61AVp9HjaP7g0dV_bph7zdDZ3M4qAbfjKdbuTEjYKRfSHZFRXFfDED_mjdkv0Ql1HHbDNMRwjt6oYl291VNfNigGsyJ-VL0mf-GHk2GYEx_lxD4Yv9gpUJ6F0mpkfvmLf1RZ0VnSII3bTa_drZfOeUs2m31sku5Mxz5bX1vfRoUW7vOBG73OgngD4CE_w6Mg0LCqFrLarVZK44ToQ6RHoxFllw',
       },
       params: {},
       returnBody: true,
@@ -215,6 +215,43 @@ class GetProductsAPICall {
       alwaysAllowBody: false,
     );
   }
+
+  static List<String>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? description(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].description''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? price(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].price''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetAllProductsCall {
