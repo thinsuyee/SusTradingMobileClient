@@ -301,14 +301,14 @@ class _HomeDashboardAdminWidgetState extends State<HomeDashboardAdminWidget> {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                              'InventoryM',
+                                              'InventoryMain',
                                               queryParameters: {
-                                                'mainInventoryTitle':
+                                                'inventoryMainTitle':
                                                     serializeParam(
                                                   'Manage Inventory',
                                                   ParamType.String,
                                                 ),
-                                                'canAddOrUpdateInventory':
+                                                'canAddItemToInventory':
                                                     serializeParam(
                                                   true,
                                                   ParamType.bool,

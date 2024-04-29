@@ -19,13 +19,11 @@ export '/pages/products/test_product_list/test_product_list_widget.dart'
     show TestProductListWidget;
 export '/pages/inventory/inventory_main/inventory_main_widget.dart'
     show InventoryMainWidget;
-export '/pages/products/product_details/product_details_widget.dart'
+export '/pages/product_details/product_details_widget.dart'
     show ProductDetailsWidget;
 export '/pages/products/test_product_details/test_product_details_widget.dart'
     show TestProductDetailsWidget;
 export '/pages/products/product_list_copy/product_list_copy_widget.dart'
     show ProductListCopyWidget;
-export '/pages/inventory/inventory_main_test/inventory_main_test_widget.dart'
-    show InventoryMainTestWidget;
 export '/pages/inventory/inventory_m/inventory_m_widget.dart'
     show InventoryMWidget;
