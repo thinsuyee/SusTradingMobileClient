@@ -22,6 +22,7 @@ class AddUpdateInventoryWidget extends StatefulWidget {
     this.quantity,
     this.productDesc,
     bool? canUpdateInventory,
+    this.productId,
   }) : canUpdateInventory = canUpdateInventory ?? true;
 
   final String? inventoryTitle;
@@ -32,6 +33,7 @@ class AddUpdateInventoryWidget extends StatefulWidget {
   final int? quantity;
   final String? productDesc;
   final bool canUpdateInventory;
+  final String? productId;
 
   @override
   State<AddUpdateInventoryWidget> createState() =>
@@ -42,6 +44,10 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
   late AddUpdateInventoryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  get skuCode => widget.skuCode;
+  get quantity => widget.quantity;
+  get productId => widget.productId;
 
   @override
   void initState() {
@@ -1065,7 +1071,11 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 12.0, 16.0, 12.0),
                       child: FutureBuilder<ApiCallResponse>(
-                        future: CreateInventoryCall.call(),
+                        future: CreateInventoryCall.call(
+                          skuCode: skuCode,
+                          quantity: quantity,
+                          productId: productId
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -1092,7 +1102,11 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                                     await UpdateInventoryCall.call();
                               } else {
                                 _model.createdItem =
-                                    await CreateInventoryCall.call();
+                                    await CreateInventoryCall.call(
+                                      skuCode: skuCode,
+                                      quantity: quantity,
+                                      productId: productId
+                                    );
                               }
 
                               context.safePop();

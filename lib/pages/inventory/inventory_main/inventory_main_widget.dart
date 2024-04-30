@@ -716,6 +716,14 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                           true,
                                                           ParamType.bool,
                                                         ),
+                                                        'productId':
+                                                        serializeParam(
+                                                          getJsonField(
+                                                            inventoryDataItem,
+                                                            r'''$.product.id''',
+                                                          ).toString(),
+                                                          ParamType.String,
+                                                        ),
                                                       }.withoutNulls,
                                                     );
                                                   },
