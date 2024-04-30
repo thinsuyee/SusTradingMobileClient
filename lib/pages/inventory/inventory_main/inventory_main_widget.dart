@@ -211,22 +211,14 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                           .future,
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
-                        if (snapshot.connectionState == ConnectionState.waiting) {
+                        if (!snapshot.hasData) {
                           return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        } else {
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme
-                                        .of(context)
-                                        .primary,
-                                  ),
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
                                 ),
                               ),
                             ),
@@ -316,6 +308,18 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                 )?.toString(),
                                                                 'Product Name',
                                                               ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .start,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -483,40 +487,41 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                   0.0),
                                                       child: Row(
                                                         mainAxisSize:
-                                                        MainAxisSize.max,
+                                                            MainAxisSize.max,
                                                         children: [
                                                           Column(
                                                             mainAxisSize:
-                                                            MainAxisSize.max,
+                                                                MainAxisSize
+                                                                    .max,
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0,
-                                                                    -1.0),
+                                                                    const AlignmentDirectional(
+                                                                        -1.0,
+                                                                        -1.0),
                                                                 child: Padding(
-                                                                  padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0),
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
                                                                   child: Text(
-                                                                    'SKU Code:',
+                                                                    'Stock Status:',
                                                                     textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                    style: FlutterFlowTheme
-                                                                        .of(
-                                                                        context)
+                                                                        TextAlign
+                                                                            .start,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                      fontFamily:
-                                                                      'Readex Pro',
-                                                                      letterSpacing:
-                                                                      0.0,
-                                                                    ),
+                                                                          fontFamily:
+                                                                              'Readex Pro',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -524,13 +529,14 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                           ),
                                                           Column(
                                                             mainAxisSize:
-                                                            MainAxisSize.max,
+                                                                MainAxisSize
+                                                                    .max,
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0,
-                                                                    -1.0),
+                                                                    const AlignmentDirectional(
+                                                                        -1.0,
+                                                                        -1.0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -552,364 +558,153 @@ class _InventoryMainWidgetState extends State<InventoryMainWidget> {
                                                                     '-',
                                                                   ),
                                                                   textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                                  style: FlutterFlowTheme
-                                                                      .of(
-                                                                      context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                    fontFamily:
-                                                                    'Readex Pro',
-                                                                    letterSpacing:
-                                                                    0.0,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                        MainAxisSize.max,
-                                                        children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                            MainAxisSize.max,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0,
-                                                                    -1.0),
-                                                                child: Padding(
-                                                                  padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0),
-                                                                  child: Text(
-                                                                    'Owned By:',
-                                                                    textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                    style: FlutterFlowTheme
-                                                                        .of(
-                                                                        context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                      fontFamily:
-                                                                      'Readex Pro',
-                                                                      letterSpacing:
-                                                                      0.0,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                            MainAxisSize.max,
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                const AlignmentDirectional(
-                                                                    -1.0,
-                                                                    -1.0),
-                                                                child: Text(
-                                                                  getJsonField(
-                                                                    inventoryDataItem,
-                                                                    r'''$.owner''',
-                                                                  ).toString(),
-                                                                  textAlign:
-                                                                  TextAlign
-                                                                      .start,
-                                                                  style: FlutterFlowTheme
-                                                                      .of(
-                                                                      context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                    fontFamily:
-                                                                    'Readex Pro',
-                                                                    letterSpacing:
-                                                                    0.0,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            0.0,
-                                                            10.0,
-                                                            0.0,
-                                                            0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                          MainAxisSize.max,
-                                                          children: [
-                                                            Column(
-                                                              mainAxisSize:
-                                                              MainAxisSize
-                                                                  .max,
-                                                              children: [
-                                                                Align(
-                                                                  alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      -1.0),
-                                                                  child: Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        5.0,
-                                                                        0.0),
-                                                                    child: Text(
-                                                                      'Stock Status:',
-                                                                      textAlign:
                                                                       TextAlign
                                                                           .start,
-                                                                      style: FlutterFlowTheme
-                                                                          .of(
+                                                                  style: FlutterFlowTheme.of(
                                                                           context)
-                                                                          .bodyMedium
-                                                                          .override(
+                                                                      .bodyMedium
+                                                                      .override(
                                                                         fontFamily:
-                                                                        'Readex Pro',
+                                                                            'Readex Pro',
                                                                         color:
-                                                                        FlutterFlowTheme
-                                                                            .of(
-                                                                            context)
-                                                                            .secondaryText,
+                                                                            () {
+                                                                          if (getJsonField(
+                                                                            inventoryDataItem,
+                                                                            r'''$.inStock''',
+                                                                          )) {
+                                                                            return FlutterFlowTheme.of(context).success;
+                                                                          } else if (!getJsonField(
+                                                                            inventoryDataItem,
+                                                                            r'''$.inStock''',
+                                                                          )) {
+                                                                            return FlutterFlowTheme.of(context).error;
+                                                                          } else {
+                                                                            return FlutterFlowTheme.of(context).secondaryText;
+                                                                          }
+                                                                        }(),
                                                                         letterSpacing:
-                                                                        0.0,
+                                                                            0.0,
                                                                       ),
-                                                                    ),
-                                                                  ),
                                                                 ),
-                                                              ],
-                                                            ),
-                                                            Column(
-                                                              mainAxisSize:
-                                                              MainAxisSize
-                                                                  .max,
-                                                              children: [
-                                                                Align(
-                                                                  alignment:
-                                                                  const AlignmentDirectional(
-                                                                      -1.0,
-                                                                      -1.0),
-                                                                  child: Text(
-                                                                        () {
-                                                                      if (null !=
-                                                                          getJsonField(
-                                                                            inventoryDataItem,
-                                                                            r'''$.inStock''',
-                                                                          ) &&
-                                                                          getJsonField(
-                                                                            inventoryDataItem,
-                                                                            r'''$.inStock''',
-                                                                          )) {
-                                                                        return 'In Stock';
-                                                                      } else
-                                                                      if (null !=
-                                                                          getJsonField(
-                                                                            inventoryDataItem,
-                                                                            r'''$.inStock''',
-                                                                          ) &&
-                                                                          !getJsonField(
-                                                                            inventoryDataItem,
-                                                                            r'''$.inStock''',
-                                                                          )) {
-                                                                        return 'Out of Stock';
-                                                                      } else {
-                                                                        return 'N.A.';
-                                                                      }
-                                                                    }(),
-                                                                    textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                    style: FlutterFlowTheme
-                                                                        .of(
-                                                                        context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                      fontFamily:
-                                                                      'Readex Pro',
-                                                                      color:
-                                                                          () {
-                                                                        if (null !=
-                                                                            getJsonField(
-                                                                              inventoryDataItem,
-                                                                              r'''$.inStock''',
-                                                                            ) &&
-                                                                            getJsonField(
-                                                                              inventoryDataItem,
-                                                                              r'''$.inStock''',
-                                                                            )
-                                                                        ) {
-                                                                          return FlutterFlowTheme
-                                                                              .of(
-                                                                              context)
-                                                                              .success;
-                                                                        } else
-                                                                        if (null !=
-                                                                            getJsonField(
-                                                                              inventoryDataItem,
-                                                                              r'''$.inStock''',
-                                                                            ) &&
-                                                                            !getJsonField(
-                                                                              inventoryDataItem,
-                                                                              r'''$.inStock''',
-                                                                            )) {
-                                                                          return FlutterFlowTheme
-                                                                              .of(
-                                                                              context)
-                                                                              .error;
-                                                                        } else {
-                                                                          return FlutterFlowTheme
-                                                                              .of(
-                                                                              context)
-                                                                              .secondaryText;
-                                                                        }
-                                                                      }(),
-                                                                      letterSpacing:
-                                                                      0.0,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
-                                                  ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                              if (widget
-                                                  .canAddItemToInventory ==
-                                                  true)
-                                                InkWell(
-                                                  splashColor: Colors
-                                                      .transparent,
-                                                  focusColor: Colors
-                                                      .transparent,
-                                                  hoverColor: Colors
-                                                      .transparent,
-                                                  highlightColor:
-                                                  Colors.transparent,
-                                                  onTap: () async {
-                                                    context.pushNamed(
-                                                      'AddUpdateInventory',
-                                                      queryParameters: {
-                                                        'inventoryTitle':
-                                                        serializeParam(
-                                                          'Edit Inventory Details',
-                                                          ParamType.String,
-                                                        ),
-                                                        'productName':
-                                                        serializeParam(
-                                                          getJsonField(
-                                                            inventoryDataItem,
-                                                            r'''$.product.name''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'skuCode': serializeParam(
-                                                          getJsonField(
-                                                            inventoryDataItem,
-                                                            r'''$.skuCode''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'inventoryOwner':
-                                                        serializeParam(
-                                                          getJsonField(
-                                                            inventoryDataItem,
-                                                            r'''$.owner''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'price': serializeParam(
-                                                          getJsonField(
-                                                            inventoryDataItem,
-                                                            r'''$.product.price''',
-                                                          ),
-                                                          ParamType.double,
-                                                        ),
-                                                        'quantity':
-                                                        serializeParam(
-                                                          getJsonField(
-                                                            inventoryDataItem,
-                                                            r'''$.quantity''',
-                                                          ),
-                                                          ParamType.int,
-                                                        ),
-                                                        'productDesc':
-                                                        serializeParam(
-                                                          getJsonField(
-                                                            inventoryDataItem,
-                                                            r'''$.product.description''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'canUpdateInventory':
-                                                        serializeParam(
-                                                          true,
-                                                          ParamType.bool,
-                                                        ),
-                                                      }.withoutNulls,
-                                                    );
-                                                  },
-                                                  child: const Column(
-                                                    mainAxisSize:
-                                                    MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                            0.0,
-                                                            4.0,
-                                                            0.0,
-                                                            0.0),
-                                                        child: Icon(
-                                                          Icons
-                                                              .chevron_right_rounded,
-                                                          color:
-                                                          Color(0xFF57636C),
-                                                          size: 24.0,
-                                                        ),
+                                            ),
+                                            if (widget.canAddItemToInventory ==
+                                                true)
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    'AddUpdateInventory',
+                                                    queryParameters: {
+                                                      'inventoryTitle':
+                                                          serializeParam(
+                                                        'Edit Inventory Details',
+                                                        ParamType.String,
                                                       ),
-                                                    ],
-                                                  ),
+                                                      'productName':
+                                                          serializeParam(
+                                                        getJsonField(
+                                                          inventoryDataItem,
+                                                          r'''$.product.name''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'skuCode': serializeParam(
+                                                        getJsonField(
+                                                          inventoryDataItem,
+                                                          r'''$.skuCode''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'inventoryOwner':
+                                                          serializeParam(
+                                                        getJsonField(
+                                                          inventoryDataItem,
+                                                          r'''$.owner''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'price': serializeParam(
+                                                        getJsonField(
+                                                          inventoryDataItem,
+                                                          r'''$.product.price''',
+                                                        ),
+                                                        ParamType.double,
+                                                      ),
+                                                      'quantity':
+                                                          serializeParam(
+                                                        getJsonField(
+                                                          inventoryDataItem,
+                                                          r'''$.quantity''',
+                                                        ),
+                                                        ParamType.int,
+                                                      ),
+                                                      'productDesc':
+                                                          serializeParam(
+                                                        getJsonField(
+                                                          inventoryDataItem,
+                                                          r'''$.product.description''',
+                                                        ).toString(),
+                                                        ParamType.String,
+                                                      ),
+                                                      'canUpdateInventory':
+                                                          serializeParam(
+                                                        true,
+                                                        ParamType.bool,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                                child: const Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.end,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .chevron_right_rounded,
+                                                        color:
+                                                            Color(0xFF57636C),
+                                                        size: 24.0,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
-                                            ],
-                                          ),
+                                              ),
+                                          ],
                                         ),
                                       ),
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                          );
-                        }
+                                    ),
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        );
                       },
                     ),
                   ),

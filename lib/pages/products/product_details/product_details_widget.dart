@@ -127,6 +127,19 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
+                          productDetailsQueryProductByIDResponse.bodyText,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Outfit',
+                                letterSpacing: 0.0,
+                              ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        child: Text(
                           getJsonField(
                             productDetailsQueryProductByIDResponse.jsonBody,
                             r'''$.name''',
