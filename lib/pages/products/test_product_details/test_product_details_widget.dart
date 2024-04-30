@@ -91,7 +91,7 @@ class _TestProductDetailsWidgetState extends State<TestProductDetailsWidget> {
               ' Product Details',
               style: FlutterFlowTheme.of(context).titleLarge.override(
                     fontFamily: 'Outfit',
-                    color: FlutterFlowTheme.of(context).secondary,
+                    color: FlutterFlowTheme.of(context).primaryText,
                     letterSpacing: 0.0,
                   ),
             ),

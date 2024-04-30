@@ -73,15 +73,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const ProductListWidget() : const ProductListWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? const HomeDashboardSalesRepWidget()
+          : const ProductListWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const HomeDashboardAdminWidget()
-              : const HomeDashboardAdminWidget(),
+              ? const HomeDashboardSalesRepWidget()
+              : const ProductListWidget(),
         ),
         FFRoute(
           name: 'AddUpdateInventory',
@@ -205,23 +206,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ProductListCopy',
-          path: '/ProductListCopy',
-          builder: (context, params) => const ProductListCopyWidget(),
+          name: 'orderList',
+          path: '/orderList',
+          builder: (context, params) => const OrderListWidget(),
         ),
         FFRoute(
-          name: 'InventoryM',
-          path: '/inventoryM',
-          builder: (context, params) => InventoryMWidget(
-            mainInventoryTitle: params.getParam(
-              'mainInventoryTitle',
-              ParamType.String,
-            ),
-            canAddOrUpdateInventory: params.getParam(
-              'canAddOrUpdateInventory',
-              ParamType.bool,
-            ),
-          ),
+          name: 'placeOrder',
+          path: '/placeOrder',
+          builder: (context, params) => const PlaceOrderWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

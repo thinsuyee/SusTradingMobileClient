@@ -55,15 +55,23 @@ class QueryProductByIDCall {
     );
   }
 
-  static List<String>? products(dynamic response) => (getJsonField(
+  static String? description(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
-        r'''$.name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
+        r'''$[:].description''',
+      ));
+  static int? price(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].price''',
+      ));
+  static String? id(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].id''',
+      ));
+  static String? name(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$[:].name''',
+      ));
 }
 
 class QueryProductByIDToTestInventoryCall {
@@ -361,12 +369,16 @@ class CreateInventoryCall {
 }
 
 class UpdateInventoryCall {
-  static Future<ApiCallResponse> call() async {
-    const ffApiRequestBody = '''
+  static Future<ApiCallResponse> call({
+    required String skuCode,
+    required int quantity,
+    required String productId
+}) async {
+    final ffApiRequestBody = '''
 {
-  "skuCode": "4324",
-  "quantity": 100,
-  "productId": "662ea3ea086f510b0d9fa715"
+  "skuCode": "$skuCode",
+  "quantity": $quantity,
+  "productId": "$productId"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'updateInventory',
@@ -397,6 +409,23 @@ class TestGetSingleProductCall {
     return ApiManager.instance.makeApiCall(
       callName: 'testGetSingleProduct',
       apiUrl: 'https://dummyjson.com/products/$productID',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetOrdersAPICall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getOrdersAPI',
+      apiUrl: 'https://4b8d-219-75-69-73.ngrok-free.app/api/order',
       callType: ApiCallType.GET,
       headers: {},
       params: {},

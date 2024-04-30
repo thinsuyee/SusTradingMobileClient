@@ -78,7 +78,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back_ios_new,
-                color: FlutterFlowTheme.of(context).secondary,
+                color: FlutterFlowTheme.of(context).primaryText,
                 size: 30.0,
               ),
               onPressed: () async {
@@ -89,7 +89,7 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
               'Product Details',
               style: FlutterFlowTheme.of(context).titleLarge.override(
                     fontFamily: 'Outfit',
-                    color: FlutterFlowTheme.of(context).secondary,
+                    color: FlutterFlowTheme.of(context).primaryText,
                     letterSpacing: 0.0,
                   ),
             ),
@@ -121,6 +121,19 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                               fit: BoxFit.cover,
                             ),
                           ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          productDetailsQueryProductByIDResponse.bodyText,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Outfit',
+                                letterSpacing: 0.0,
+                              ),
                         ),
                       ),
                       Padding(
@@ -266,8 +279,8 @@ class _ProductDetailsWidgetState extends State<ProductDetailsWidget> {
                           ),
                         ),
                         FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed('placeOrder');
                           },
                           text: 'Add to Cart',
                           options: FFButtonOptions(
