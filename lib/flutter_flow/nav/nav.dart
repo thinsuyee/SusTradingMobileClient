@@ -209,40 +209,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'placeOrder',
           path: '/placeOrder',
-          builder: (context, params) => PlaceOrderWidget(
-            inventoryTitle: params.getParam(
-              'inventoryTitle',
-              ParamType.String,
-            ),
-            productName: params.getParam(
-              'productName',
-              ParamType.String,
-            ),
-            skuCode: params.getParam(
-              'skuCode',
-              ParamType.String,
-            ),
-            inventoryOwner: params.getParam(
-              'inventoryOwner',
-              ParamType.String,
-            ),
-            price: params.getParam(
-              'price',
-              ParamType.double,
-            ),
-            quantity: params.getParam(
-              'quantity',
-              ParamType.int,
-            ),
-            productDesc: params.getParam(
-              'productDesc',
-              ParamType.String,
-            ),
-            canUpdateInventory: params.getParam(
-              'canUpdateInventory',
-              ParamType.bool,
-            ),
-          ),
+          builder: (context, params) => const PlaceOrderWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
