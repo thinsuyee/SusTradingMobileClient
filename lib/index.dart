@@ -23,7 +23,6 @@ export '/pages/products/product_details/product_details_widget.dart'
     show ProductDetailsWidget;
 export '/pages/products/test_product_details/test_product_details_widget.dart'
     show TestProductDetailsWidget;
-export '/pages/products/product_list_copy/product_list_copy_widget.dart'
-    show ProductListCopyWidget;
-export '/pages/inventory/inventory_m/inventory_m_widget.dart'
-    show InventoryMWidget;
+export '/pages/orders/order_list/order_list_widget.dart' show OrderListWidget;
+export '/pages/orders/place_order/place_order_widget.dart'
+    show PlaceOrderWidget;

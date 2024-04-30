@@ -57,7 +57,7 @@ class _TestProductListWidgetState extends State<TestProductListWidget> {
             buttonSize: 60.0,
             icon: Icon(
               Icons.arrow_back_ios_new,
-              color: FlutterFlowTheme.of(context).secondary,
+              color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
             onPressed: () async {
@@ -68,7 +68,7 @@ class _TestProductListWidgetState extends State<TestProductListWidget> {
             'Products',
             style: FlutterFlowTheme.of(context).titleMedium.override(
                   fontFamily: 'Readex Pro',
-                  color: FlutterFlowTheme.of(context).secondary,
+                  color: FlutterFlowTheme.of(context).primaryText,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                 ),
