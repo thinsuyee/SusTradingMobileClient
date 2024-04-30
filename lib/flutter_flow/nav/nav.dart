@@ -73,14 +73,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const ProductListWidget() : const ProductListWidget(),
+      errorBuilder: (context, state) => appStateNotifier.loggedIn
+          ? const HomeDashboardSalesRepWidget()
+          : const ProductListWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const ProductListWidget()
+              ? const HomeDashboardSalesRepWidget()
               : const ProductListWidget(),
         ),
         FFRoute(
@@ -201,20 +202,44 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ProductListCopy',
-          path: '/ProductListCopy',
-          builder: (context, params) => const ProductListCopyWidget(),
+          name: 'orderList',
+          path: '/orderList',
+          builder: (context, params) => const OrderListWidget(),
         ),
         FFRoute(
-          name: 'InventoryM',
-          path: '/inventoryM',
-          builder: (context, params) => InventoryMWidget(
-            mainInventoryTitle: params.getParam(
-              'mainInventoryTitle',
+          name: 'placeOrder',
+          path: '/placeOrder',
+          builder: (context, params) => PlaceOrderWidget(
+            inventoryTitle: params.getParam(
+              'inventoryTitle',
               ParamType.String,
             ),
-            canAddOrUpdateInventory: params.getParam(
-              'canAddOrUpdateInventory',
+            productName: params.getParam(
+              'productName',
+              ParamType.String,
+            ),
+            skuCode: params.getParam(
+              'skuCode',
+              ParamType.String,
+            ),
+            inventoryOwner: params.getParam(
+              'inventoryOwner',
+              ParamType.String,
+            ),
+            price: params.getParam(
+              'price',
+              ParamType.double,
+            ),
+            quantity: params.getParam(
+              'quantity',
+              ParamType.int,
+            ),
+            productDesc: params.getParam(
+              'productDesc',
+              ParamType.String,
+            ),
+            canUpdateInventory: params.getParam(
+              'canUpdateInventory',
               ParamType.bool,
             ),
           ),

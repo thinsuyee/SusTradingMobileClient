@@ -301,50 +301,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           snapshot.data!;
                                       return FFButtonWidget(
                                         onPressed: () async {
-                                          _model.apiRespondResult =
-                                              await SignInCall.call(
-                                            username: _model
-                                                .emailAddressTextController
-                                                .text,
-                                            password: _model
-                                                .passwordTextController.text,
-                                          );
-                                          if ((_model.apiRespondResult
-                                                  ?.succeeded ??
-                                              true)) {
-                                            context.pushNamed('ProductList');
-
-                                            setState(() {
-                                              FFAppState().authtoken =
-                                                  getJsonField(
-                                                (_model.apiRespondResult
-                                                        ?.jsonBody ??
-                                                    ''),
-                                                r'''$.access_token''',
-                                              ).toString();
-                                            });
-                                          } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  '\"Login Failed\"',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
-                                                  ),
-                                                ),
-                                                duration: const Duration(
-                                                    milliseconds: 4000),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            );
-                                          }
-
-                                          setState(() {});
+                                          context.pushNamed(
+                                              'HomeDashboard_SalesRep');
                                         },
                                         text: 'Sign In',
                                         options: FFButtonOptions(

@@ -2,11 +2,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
-import 'product_list_copy_widget.dart' show ProductListCopyWidget;
+import 'order_list_widget.dart' show OrderListWidget;
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class ProductListCopyModel extends FlutterFlowModel<ProductListCopyWidget> {
+class OrderListModel extends FlutterFlowModel<OrderListWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -55,14 +55,14 @@ class ProductListCopyModel extends FlutterFlowModel<ProductListCopyWidget> {
       ),
     );
     return controller
-      ..addPageRequestListener(allProductListViewGetProductsAPIPage);
+      ..addPageRequestListener(allProductListViewGetOrdersAPIPage);
   }
 
-  void allProductListViewGetProductsAPIPage(ApiPagingParams nextPageMarker) =>
+  void allProductListViewGetOrdersAPIPage(ApiPagingParams nextPageMarker) =>
       allProductListViewApiCall!(nextPageMarker)
-          .then((allProductListViewGetProductsAPIResponse) {
+          .then((allProductListViewGetOrdersAPIResponse) {
         final pageItems =
-            (allProductListViewGetProductsAPIResponse.jsonBody ?? []).toList()
+            (allProductListViewGetOrdersAPIResponse.jsonBody ?? []).toList()
                 as List;
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         allProductListViewPagingController?.appendPage(
@@ -71,7 +71,7 @@ class ProductListCopyModel extends FlutterFlowModel<ProductListCopyWidget> {
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: allProductListViewGetProductsAPIResponse,
+                  lastResponse: allProductListViewGetOrdersAPIResponse,
                 )
               : null,
         );
