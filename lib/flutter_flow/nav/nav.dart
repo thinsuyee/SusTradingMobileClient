@@ -91,35 +91,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             inventoryTitle: params.getParam(
               'inventoryTitle',
               ParamType.String,
-            ),
+            ) ?? '',
             productName: params.getParam(
               'productName',
               ParamType.String,
-            ),
+            ) ?? '',
             skuCode: params.getParam(
               'skuCode',
               ParamType.String,
-            ),
+            ) ?? '',
             inventoryOwner: params.getParam(
               'inventoryOwner',
               ParamType.String,
-            ),
+            ) ?? '',
             price: params.getParam(
               'price',
               ParamType.double,
-            ),
+            ) ?? 0.0,
             quantity: params.getParam(
               'quantity',
               ParamType.int,
-            ),
+            ) ?? 0,
             productDesc: params.getParam(
               'productDesc',
               ParamType.String,
-            ),
+            ) ?? '',
             canUpdateInventory: params.getParam(
               'canUpdateInventory',
               ParamType.bool,
-            ),
+            ) ?? false,
+            productId: params.getParam(
+              'productId',
+              ParamType.String,
+            ) ?? '',
           ),
         ),
         FFRoute(

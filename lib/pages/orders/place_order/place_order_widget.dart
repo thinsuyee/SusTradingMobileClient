@@ -734,7 +734,11 @@ class _PlaceOrderWidgetState extends State<PlaceOrderWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 12.0, 16.0, 12.0),
                       child: FutureBuilder<ApiCallResponse>(
-                        future: CreateInventoryCall.call(),
+                        future: CreateInventoryCall.call(
+                          skuCode: _model.skuCodeTextController.text,
+                          quantity: 0, //TODO
+                          productId: "P2000" //TODO
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {

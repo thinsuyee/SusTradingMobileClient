@@ -22,6 +22,7 @@ class AddUpdateInventoryWidget extends StatefulWidget {
     this.quantity,
     this.productDesc,
     bool? canUpdateInventory,
+    this.productId,
   }) : canUpdateInventory = canUpdateInventory ?? true;
 
   final String? inventoryTitle;
@@ -32,6 +33,7 @@ class AddUpdateInventoryWidget extends StatefulWidget {
   final int? quantity;
   final String? productDesc;
   final bool canUpdateInventory;
+  final String? productId;
 
   @override
   State<AddUpdateInventoryWidget> createState() =>
@@ -42,6 +44,10 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
   late AddUpdateInventoryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  get skuCode => widget.skuCode;
+  get quantity => widget.quantity;
+  get productId => widget.productId;
 
   @override
   void initState() {
@@ -162,9 +168,111 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
+                                            // FutureBuilder<ApiCallResponse>(
+                                            //   future:
+                                            //       GetAllInventoryCall.call(),
+                                            //   builder: (context, snapshot) {
+                                            //     // Customize what your widget looks like when it's loading.
+                                            //     if (!snapshot.hasData) {
+                                            //       return Center(
+                                            //         child: SizedBox(
+                                            //           width: 50.0,
+                                            //           height: 50.0,
+                                            //           child:
+                                            //               CircularProgressIndicator(
+                                            //             valueColor:
+                                            //                 AlwaysStoppedAnimation<
+                                            //                     Color>(
+                                            //               FlutterFlowTheme.of(
+                                            //                       context)
+                                            //                   .primary,
+                                            //             ),
+                                            //           ),
+                                            //         ),
+                                            //       );
+                                            //     }
+                                            //     final inventoryOwnerDropdownGetAllInventoryResponse =
+                                            //         snapshot.data!;
+                                            //     return FlutterFlowDropDown<
+                                            //         String>(
+                                            //       controller: _model
+                                            //               .inventoryOwnerDropdownValueController ??=
+                                            //           FormFieldController<
+                                            //               String>(
+                                            //         _model.inventoryOwnerDropdownValue ??=
+                                            //             widget.inventoryOwner,
+                                            //       ),
+                                            //       options: const ['Option 1'],
+                                            //       onChanged: (val) => setState(
+                                            //           () => _model
+                                            //                   .inventoryOwnerDropdownValue =
+                                            //               val),
+                                            //       width: 357.0,
+                                            //       height: 56.0,
+                                            //       searchHintTextStyle:
+                                            //           FlutterFlowTheme.of(
+                                            //                   context)
+                                            //               .labelMedium
+                                            //               .override(
+                                            //                 fontFamily:
+                                            //                     'Readex Pro',
+                                            //                 letterSpacing: 0.0,
+                                            //               ),
+                                            //       searchTextStyle:
+                                            //           FlutterFlowTheme.of(
+                                            //                   context)
+                                            //               .bodyMedium
+                                            //               .override(
+                                            //                 fontFamily:
+                                            //                     'Readex Pro',
+                                            //                 letterSpacing: 0.0,
+                                            //               ),
+                                            //       textStyle:
+                                            //           FlutterFlowTheme.of(
+                                            //                   context)
+                                            //               .bodyMedium
+                                            //               .override(
+                                            //                 fontFamily:
+                                            //                     'Readex Pro',
+                                            //                 letterSpacing: 0.0,
+                                            //               ),
+                                            //       hintText:
+                                            //           'Please select inventory owner...',
+                                            //       searchHintText:
+                                            //           'Search for product owner...',
+                                            //       icon: Icon(
+                                            //         Icons
+                                            //             .keyboard_arrow_down_rounded,
+                                            //         color: FlutterFlowTheme.of(
+                                            //                 context)
+                                            //             .secondaryText,
+                                            //         size: 24.0,
+                                            //       ),
+                                            //       fillColor:
+                                            //           FlutterFlowTheme.of(
+                                            //                   context)
+                                            //               .secondaryBackground,
+                                            //       elevation: 2.0,
+                                            //       borderColor:
+                                            //           FlutterFlowTheme.of(
+                                            //                   context)
+                                            //               .alternate,
+                                            //       borderWidth: 2.0,
+                                            //       borderRadius: 8.0,
+                                            //       margin: const EdgeInsetsDirectional
+                                            //           .fromSTEB(
+                                            //               16.0, 4.0, 16.0, 4.0),
+                                            //       hidesUnderline: true,
+                                            //       disabled:
+                                            //           widget.canUpdateInventory,
+                                            //       isOverButton: true,
+                                            //       isSearchable: true,
+                                            //       isMultiSelect: false,
+                                            //     );
+                                            //   },
+                                            // ),
                                             FutureBuilder<ApiCallResponse>(
-                                              future:
-                                                  GetAllInventoryCall.call(),
+                                              future: GetAllInventoryCall.call(),
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
@@ -173,92 +281,103 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                                                       width: 50.0,
                                                       height: 50.0,
                                                       child:
-                                                          CircularProgressIndicator(
+                                                      CircularProgressIndicator(
                                                         valueColor:
-                                                            AlwaysStoppedAnimation<
-                                                                Color>(
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
                                                           FlutterFlowTheme.of(
-                                                                  context)
+                                                              context)
                                                               .primary,
                                                         ),
                                                       ),
                                                     ),
                                                   );
                                                 }
-                                                final inventoryOwnerDropdownGetAllInventoryResponse =
-                                                    snapshot.data!;
+                                                final inventoryOwnerDropdownGetAllInventoryOwnersResponse = snapshot.data!;
+                                                final ownerList = GetAllInventoryCall
+                                                    .getOwners(
+                                                  inventoryOwnerDropdownGetAllInventoryOwnersResponse
+                                                      .jsonBody,
+                                                ) ?? [];
+
+                                                List<String> distinctOwnerList = [];
+                                                if ([] != ownerList) {
+                                                  final distinctOwnerSet = ownerList.toSet();
+                                                  distinctOwnerList = distinctOwnerSet.toList();
+                                                }
+
                                                 return FlutterFlowDropDown<
                                                     String>(
                                                   controller: _model
-                                                          .inventoryOwnerDropdownValueController ??=
+                                                      .inventoryOwnerDropdownValueController ??=
                                                       FormFieldController<
                                                           String>(
-                                                    _model.inventoryOwnerDropdownValue ??=
-                                                        widget.inventoryOwner,
-                                                  ),
-                                                  options: const ['Option 1'],
+                                                        _model.inventoryOwnerDropdownValue ??=
+                                                            widget.inventoryOwner,
+                                                      ),
+                                                  options: distinctOwnerList,
                                                   onChanged: (val) => setState(
-                                                      () => _model
-                                                              .inventoryOwnerDropdownValue =
+                                                          () => _model
+                                                          .inventoryOwnerDropdownValue =
                                                           val),
                                                   width: 357.0,
                                                   height: 56.0,
                                                   searchHintTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .labelMedium
+                                                      .override(
+                                                    fontFamily:
+                                                    'Readex Pro',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   searchTextStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .bodyMedium
+                                                      .override(
+                                                    fontFamily:
+                                                    'Readex Pro',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .bodyMedium
+                                                      .override(
+                                                    fontFamily:
+                                                    'Readex Pro',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                                   hintText:
-                                                      'Please select inventory owner...',
+                                                  'Please select inventory owner...',
                                                   searchHintText:
-                                                      'Search for product owner...',
+                                                  'Search for inventory owner...',
                                                   icon: Icon(
                                                     Icons
                                                         .keyboard_arrow_down_rounded,
                                                     color: FlutterFlowTheme.of(
-                                                            context)
+                                                        context)
                                                         .secondaryText,
                                                     size: 24.0,
                                                   ),
                                                   fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .secondaryBackground,
                                                   elevation: 2.0,
                                                   borderColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .alternate,
+                                                  FlutterFlowTheme.of(
+                                                      context)
+                                                      .alternate,
                                                   borderWidth: 2.0,
                                                   borderRadius: 8.0,
                                                   margin: const EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          16.0, 4.0, 16.0, 4.0),
+                                                      16.0, 4.0, 16.0, 4.0),
                                                   hidesUnderline: true,
                                                   disabled:
-                                                      widget.canUpdateInventory,
+                                                  widget.canUpdateInventory,
                                                   isOverButton: true,
                                                   isSearchable: true,
                                                   isMultiSelect: false,
@@ -952,7 +1071,11 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                       padding: const EdgeInsetsDirectional.fromSTEB(
                           16.0, 12.0, 16.0, 12.0),
                       child: FutureBuilder<ApiCallResponse>(
-                        future: CreateInventoryCall.call(),
+                        future: CreateInventoryCall.call(
+                          skuCode: skuCode,
+                          quantity: quantity,
+                          productId: productId
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -974,13 +1097,20 @@ class _AddUpdateInventoryWidgetState extends State<AddUpdateInventoryWidget> {
                               if (widget.canUpdateInventory &&
                                       (widget.inventoryTitle ==
                                           'Edit Inventory Details')
-                                  ? true
-                                  : true) {
+                              ) {
                                 _model.updatedItem =
-                                    await CreateInventoryCall.call();
+                                    await CreateInventoryCall.call(
+                                        skuCode: skuCode,
+                                        quantity: quantity,
+                                        productId: productId
+                                    );
                               } else {
                                 _model.createdItem =
-                                    await CreateInventoryCall.call();
+                                    await UpdateInventoryCall.call(
+                                      skuCode: skuCode,
+                                      quantity: quantity,
+                                      productId: productId
+                                    );
                               }
 
                               context.safePop();
